@@ -11,7 +11,7 @@
 
 目录结构：<br />
 |─ php/ <br />
-| &nbsp;&nbsp;&nbsp;├── CodeIgniter/<br />
+| &nbsp;&nbsp;├─ CodeIgniter/<br />
 |─ python/ <br />
 |─ javascript/ <br />
 |─ shell/ <br />
