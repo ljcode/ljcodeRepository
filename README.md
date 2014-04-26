@@ -10,10 +10,10 @@
 ################################################################################<br />
 
 目录结构：<br />
-|─ php<br />
+|─ php/ <br />
 |  ├── CodeIgniter/<br />
-|─ python<br />
-|─ javascript<br />
-|─ shell<br />
-|─ mysql<br />
-|─ apache<br />
+|─ python/ <br />
+|─ javascript/ <br />
+|─ shell/ <br />
+|─ mysql/ <br />
+|─ apache/ <br />
