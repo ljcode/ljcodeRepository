@@ -1,10 +1,10 @@
 <?php
 define(APP_PATH, dirname(__FILE__));
 require_once(APP_PATH . "/library/phpqrcode.php");  //引入二维码工具类
-define(QRCODE_PATH, APP_PATH . '/img/');            //图片路径 不生成静态图片文件 可以省略
-$id = 123456;                                       //虚拟文章ID
-$qrValue = 'http://localhost/' . $id . '.html';     //二维码存储内容
-$qrPath  = QRCODE_PATH . $id . '.png';              //二维码生成路径 和 文件名
+define(QRCODE_PATH, APP_PATH . '/img/');            //生存的二维码图片存放路径 不生成图片文件 可以省略
+$id = 123456;                                       //虚拟文章ID 自定义
+$qrValue = 'http://localhost/' . $id . '.html';     //二维码存储内容  URL
+$qrPath  = QRCODE_PATH . $id . '.png';              //二维码生成路径+文件名
 /*
 	静态方法
 	public static function png($text, $outfile=false, $level=QR_ECLEVEL_L, $size=3, $margin=4, $saveandprint=false)
@@ -16,6 +16,6 @@ $qrPath  = QRCODE_PATH . $id . '.png';              //二维码生成路径 和 
 	参数$margin表示二维码周围边框空白区域间距值
 	参数$saveandprint表示是否保存二维码并显示
 */
-QRcode::png($qrValue, $qrPath, 'L', 5, 4,false);
+QRcode::png($qrValue, $qrPath, 'L', 5, 4,false);      //注意  这里的生成路径默认是false 为否 直接输出二维码图片
 $str = '<img src= http://localhost/qrcode_demo/img/' . $id . '.png />';
 echo $str;

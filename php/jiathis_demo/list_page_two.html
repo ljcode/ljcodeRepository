@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>单个页面添加多组分享代码块 JIATHIS</title>
+</head>
+<body>
+<div onmouseover="setShare('分享内容一', 'www.test1.com')">
+	<div class="jiathis_style">
+		<a href="http://www.jiathis.com/share?uid=1990969" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">分享</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+</div>
+
+<div onmouseover="setShare('分享内容二', 'www.test2.com')">
+	<div class="jiathis_style">
+		<a href="http://www.jiathis.com/share?uid=1990969" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">分享</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+</div>
+
+<script type="text/javascript">
+	//响应函数
+	function setShare(title, url) {
+	  jiathis_config.title = title;
+	  jiathis_config.url = url;
+	}
+	//参数设置
+	var jiathis_config={
+		data_track_clickback:true,   //是否启用回流量统计，启用后，分享出去的链接会自动在后面加上jtss=xxx的参数，这样可以精确统计到您网站的回流量
+		siteNum:3,                   //分享面板上的社会化媒体的个数
+		sm:"weixin,qzone,tsina",     //自定义分享面板上社会化媒体的排序
+		summary:"",                  //数summary: 定义要分享页面的摘要，摘要默认为Meta标签中Description部分
+		shortUrl:false,              //是否针对新浪微博开启短链接传递，如果缺省，默认为true(开启)，关闭定义为false(不开启) 不加引号
+		hideMore:true                //隐藏“更多”按扭
+	}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1990969" charset="utf-8"></script>
+</body>
+</html>
