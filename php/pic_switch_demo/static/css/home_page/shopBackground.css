@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+/*shop background add css*/
+/*left nav css*/
+.tabControl{
+	display:inline-block;background:#ECECEC;border:#797979 solid 1px;padding:3px 0;width:80px;text-align:center;color:#000;	
+	}
+.recommend{
+	border-left:none;margin-right:15px;	
+	}
+.curChoose{
+	background:#FFF;font-size:14;font-weight:bold;color:#FF7E28;	
+	}
+.ztdemo_shop_table .secondClassify{
+	padding-left:40px;	
+	}
+.ztdemo_shop_table .hirdlyClassify{
+	padding-left:80px;	
+	}
+.leftNavTable{
+	min-width:900px;	
+	}
+.brandLogo img{
+	width:54px;height:54px;
+	}
+/*vew add public css*/
+.newAdd{
+	color:#4A4A4A;font-weight:bold;
+	}
+.newAdd a:link,.newAdd a:visited{
+	color:#4A4A4A;text-decoration:none;	
+	}
+.newAdd a:hover{
+	text-decoration:underline;	
+	}
+.newAdd span{
+	color:#000;	
+	}
+.lefNavContentAdd{
+	padding-top:26px;*padding-top:8px;
+	}
+.lefNavContentAdd p{
+	padding-left:40px;line-height:35px;overflow:hidden;zoom:1;
+	}
+.lefNavTJAdd{
+	margin-top:26px;*padding-top:8px;
+	}
+.lefNavTJAdd p{
+	padding-left:20px;margin-bottom:5px;overflow:hidden;zoom:1;
+	}
+/*input select*/
+.addText,.addSelect,.addSelectLevel{
+	height:20px;margin-left:12px;width:140px;line-height:20px;	
+	}
+.addTextUrl{
+	width:240px;	
+	}
+.addSelect,.addSelectLevel{
+	width:110px;
+	}
+.addSelectLevel{
+	margin:0 5px 0 18px;	
+	}
+.addRadio,.addRadioNo{
+	vertical-align:middle;margin-right:3px;
+	}
+.addRadio{
+	margin-left:12px;	
+	}
+.addRadioNo{
+	margin-left:30px;	
+	}
+    
+.tableInputSort{
+	height:20px;width:50px;line-height:20px;	
+	}    
+/*banner add amend*/
+.bannerContent p{
+	margin-left:-20px;line-height:0;margin-bottom:5px;		
+	}
+.areaSet{
+	line-height:0;margin-bottom:10px;
+	}
+.newAddWidth{
+	display:inline-block;width:60px;text-align:right;
+	}
+.addTextTitle{
+	width:180px;
+	}
+.sort,.tone{
+	margin-left:12px;width:50px;height:20px;line-height:20px;	
+	}
+.chooseInput{
+	margin-left:12px;
+	}
+.toneMargin{
+	margin-left:12px;
+	}
+.tone{
+	width:80px;margin-left:5px;	
+	}
+.lefNavContentAdd .bannerAmendImg{
+	display:inline-block;margin:3px 0 10px 93px;padding-left:0;
+	}
+.bannerAmendImg img{
+	vertical-align:top;border:#797979 solid 1px;margin-left:20px;	
+	}
+    
+    
+    
+    
+/* chenxiongbiao 2013-10-10*/
+
+/*表格右侧数字统计 */
+.RightTotal{float:right; padding:0 30px 0 0; line-height:30px; }
+
+/* 标题右侧对齐样式 */
+.TitleWidth { width:60px; text-align:right; display:inline-block; }    
+.TitleWidth90{width:90px;display:inline-block;text-align:right;}
+a.newAddLinks:link,a.newAddLinks:visited{color: #377BEE;text-decoration: underline; font-size:12px; font-weight:bold; }
+ 
+.flashSelectDiv{ padding:10px 0 0 18px }   
+.flashSelectDiv select{ float:left; margin-left:12px;}
+    
+.floatLeft{ float:left;} 
+.floatRight{ float:right;}    
+.marginL20{margin-left:20px;}
+.marginL0{ margin-left:0}    
+.cleartTitle{float:none;}   
+#logo_img{vertical-align:text-top;}    
+
+/*限时页面分页+按钮样式*/    
+.timeFoot{
+	overflow:hidden;zoom:1;	
+	}
+.timePageButton{
+	float:left;	
+	}    
+.timePage{
+	float:right;	
+	}
+/*2013-10-24 后台生成静态页面css添加*/
+.outPut{ margin:50px 0 0 50px;}   
+.outPut p{ height:32px; line-height:32px; overflow:hidden;zoom:1;*zoom:1;_zoom:1;}    
+.outPut p span{ float:left; margin:0 5px 0 10px; font-size:14px; font-weight:bold;}    
+    
+    
+    
+    
