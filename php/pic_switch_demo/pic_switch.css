@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+.info_left{
+	float:left;width:869px;	
+	}
+.info_left_banner{
+	position:relative;width:869px;height:314px;overflow:hidden;	
+	}
+.info_banner_img img{
+	width:869px;height:314px;vertical-align:top;	
+	}	
+.info_banner_img{
+	width:5000px;overflow:hidden;zoom:1;	
+	}
+.info_banner_img li{
+	float:left;	
+	}
+.info_banner_dor{
+	position:absolute;bottom:15px;left:20px;overflow:hidden;zoom:1;	
+	}
+.info_banner_dor li{
+	float:left;	margin-right:20px;width:13px;height:13px;background:url(images/banner_img_07.png);text-indent:-100px;cursor:pointer;
+	}
+.info_banner_dor .info_dor_active{
+	background:url(images/banner_img_09.png);	
+	}
