@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片轮转</title>
+<link href="pic_switch.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="pic_switch.js"></script>
+</head>
+<body>
+<div class="info_left">
+	<div class="info_left_banner" id="show_div">
+        <ul class="info_banner_img" id="ContentBannerContentImg">
+        <!--  循环图片  star-->
+            <li id="show_0"><a href="www.baidu.com" target="_blank"><img id="banner_img_0"  alt="432" src="images/11.jpg" /></a></li>
+          <script>
+            banner_img_change("images/1.jpg","banner_img_0");
+        </script>
+            <li id="show_1"><a href="321321" target="_blank"><img  id="banner_img_1"  alt="321" src="images/22.jpg" /></a></li>
+        <script>
+            banner_img_change("images/2.jpg","banner_img_1");
+        </script>
+            <li id="show_2"><a href="321" target="_blank"><img  id="banner_img_2"  alt="321" src="images/33.jpg" /></a></li>
+        <script>
+            banner_img_change("images/3.jpg","banner_img_2");
+        </script>
+		<!-- 循环图片 end-->
+        </ul>
+
+        <ul class="info_banner_dor" >
+        <!-- 循环图片左下角的点 并给第一个li 加默认  star-->
+            <li onmouseover="fn_showdot(0)"  class="info_dor_active"></li>
+            <li onmouseover="fn_showdot(1)" ></li>
+            <li onmouseover="fn_showdot(2)" ></li>
+			<!-- 循环图片左下角的点 end-->
+        </ul>
+
+    </div>
+
+</div>
+</body>
+</html>
+
