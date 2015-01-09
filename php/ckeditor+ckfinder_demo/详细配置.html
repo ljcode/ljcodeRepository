@@ -1,0 +1,1521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>    
+    <script type="text/javascript" src="http://csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+
+    <script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/46aae4d1e2371e4aa769798941cef698/allmobilize.min.js"></script>
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>CKEditor和CKFinder及CKEditor配置属性说明 - zls_12的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="最近在做一个新闻发布平台，放弃了很早的FCKEditor，使用CKEditor和CKFinder，尽管免费的CKFinder是Demo版本，但是功能完整，而且用户都是比较集中精神发新闻的人，不会在意这个。按照官网的document一步一步配置，虽然并不难，但是有些东西特别分散，还是全英文的，所以我就整理了一下安装过程和配置，以及需要注意的一些问题。希望对大家有所帮助。1. 下载CK" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+       
+        <link rel="stylesheet" href="http://static.csdn.net/public/common/toolbar/css/index.css">
+        <!--new top-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/light_blue/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/zls_12/rss/list" />
+    <link rel="shortcut icon" href="http://csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://static.csdn.net/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/zl_jay">zls_12的专栏</a></h2>
+            <h3></h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+                <li id="btnContents"><a href="http://blog.csdn.net/zl_jay?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/zl_jay?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/zl_jay/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "zls_12";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/zl_jay";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/41944891">
+<font color=blue>2015年4月微软MVP申请</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/41842837">
+<font color=red>《京东技术解密》有奖试读，礼品大放送
+</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/42172979">
+<font color=blue>“我的2014”年度征文活动火爆开启
+</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://vote.blog.csdn.net/">
+<font color=red>CSDN 2014博客之星
+</font></a>
+</div>                        </div>
+                        
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://csdnimg.cn/rabbit/search-service/main.js"></script>
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/zl_jay/article/details/12586735">
+        CKEditor和CKFinder及CKEditor配置属性说明
+        </a></span>
+    </h1>
+</div>
+
+    <div class="article_manage">
+        <span class="link_categories">
+        分类：
+            <a href="/zls_12/article/category/1678671" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">CKEditor</a> 
+        </span>
+    <span class="link_postdate">2013-10-10 22:06</span>
+    <span class="link_view" title="阅读次数">1923人阅读</span>
+    <span class="link_comments" title="评论次数"><a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(0)</span>
+    <span class="link_collect"><a href="javascript:void(0);" onclick="javascript:_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shoucang']);collectArticle('CKEditor和CKFinder及CKEditor配置属性说明','12586735');return false;" title="收藏">收藏</a></span>
+    <span class="link_report"><a href="#report"  onclick="javascript:_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_jubao']);report(12586735,2);return false;" title="举报">举报</a></span>
+    
+</div>
+<div class="tag2box"><a href='http://www.csdn.net/tag/j2ee' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">j2ee</a><a href='http://www.csdn.net/tag/ckfinder' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">ckfinder</a><a href='http://www.csdn.net/tag/ckeditor' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">ckeditor</a><a href='http://www.csdn.net/tag/fckeditor' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">fckeditor</a><a href='http://www.csdn.net/tag/%e6%8e%a7%e4%bb%b6' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">控件</a></div>
+
+  
+    
+<div id="article_content" class="article_content">
+
+<h1><span style="font-family:arial,宋体,sans-serif; font-size:13px; line-height:24px; text-indent:30px; font-weight:normal">&nbsp;最近在做一个新闻发布平台，放弃了很早的FCKEditor，使用CKEditor和CKFinder，尽管免费的CKFinder是Demo版本，但是功能完整，而且用户都是比较集中精神发新闻的人，不会在意这个。按照官网的document一步一步配置，虽然并不难，但是有些东西特别分散，还是全英文的，所以我就整理了一下安装过程和配置，以及需要注意的一些问题。希望对大家有所帮助。</span><br>
+</h1>
+<div><span style="font-family:arial,宋体,sans-serif; font-size:13px; line-height:24px; text-indent:30px; font-weight:normal"></span>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+1. 下载CKEditor相关的安装文件</h2>
+<ul style="margin-left:45px; font-family:verdana,sans-serif; font-size:13px; line-height:19px">
+<li style="list-style:inherit!important"><span style="line-height:1.5">CKEditor: 在&nbsp;</span><a target="_blank" target="_blank" href="http://ckeditor.com/download" style="color:rgb(68,68,68); text-decoration:none; line-height:1.5">http://ckeditor.com/download</a><span style="line-height:1.5">&nbsp;页面左侧，可以下载到各种版本的CKEditor，包括完整版full、标准版standard、基础版basic等。在页面右侧上方，还有可定制的下载，可以选择Toolbar类型、插件、语言等。这里我们选择4.1版本的Full版本，下载后得到CKEditor_4.1_full.zip
+ 。</span></li><li style="list-style:inherit!important"><span style="line-height:1.5">CKEditor for java: 在</span><a target="_blank" target="_blank" href="http://ckeditor.com/download" style="color:rgb(68,68,68); text-decoration:none; line-height:1.5">http://ckeditor.com/download</a>&nbsp;页面右侧下部，可以下载到用于服务器端的工具，记得选择for
+ java版本。这里选择3.6.4版本。但是下载下来却是&nbsp;<span style="line-height:1.5">ckeditor-java-core-3.5.3.jar。不知道为什么。</span></li><li style="list-style:inherit!important">CKFinder: 在&nbsp;<a target="_blank" target="_blank" href="http://cksource.com/ckfinder/trial" style="color:rgb(68,68,68); text-decoration:none; line-height:1.5">http://cksource.com/ckfinder/trial</a>&nbsp;页面，可以下载到各种版本的CKFinder。仍然选择java版。这里我们下载的是2.3.1版本，下载后得到CKFinder_java_2.3.1.zip。</li><li></li></ul>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+2. 安装CKEditor和CKFinder</h2>
+<div><br>
+</div>
+<ul style="margin-left:45px; font-family:verdana,sans-serif; font-size:13px; line-height:19px">
+</ul>
+<ul style="margin-left:45px; font-family:verdana,sans-serif; font-size:13px; line-height:19px">
+<li style="list-style:inherit!important"><span style="line-height:1.5">解压CKEditor_4.1_full.zip，把解压得到的目录&nbsp;<span style="text-decoration:underline">ckeditor</span>&nbsp;完全复制到网站根目录下，也就是和WEB-INF同级。可以给这个目录加上版本号，即ckeditor4.1。</span></li><li style="list-style:inherit!important"><span style="line-height:1.5">把&nbsp;<span style="text-decoration:underline">ckeditor4.1/samples</span>&nbsp;完全删掉，把&nbsp;<span style="text-decoration:underline">ckeditor4.1/lang</span>&nbsp;里面除了en.js和zh-cn.js之外的文件删掉，把&nbsp;<span style="text-decoration:underline">ckeditor4.1</span>&nbsp;下的README.md,
+ CHANGES.md删掉。</span></li><li style="list-style:inherit!important">把 ckeditor-java-core-3.5.3.jar 放到<span style="text-decoration:underline">yourapp/WEB-INF/lib</span>下</li><li style="list-style:inherit!important">解压CKFinder_java_2.3.1.zip，得到ckfinder目录。将&nbsp;<span style="line-height:1.5"><span style="text-decoration:underline">ckfinder/CKFinderJava/ckfinder</span>&nbsp;目录完全复制到网站根目录下，也就是和WEB-INF同级。可以给这个目录加上版本号，即ckfinder2.3.1。</span></li><li style="list-style:inherit!important"><span style="line-height:1.5">把&nbsp;<span style="text-decoration:underline">ckfinder2.3.1/_samples</span>完全删掉，把&nbsp;<span style="text-decoration:underline">ckfinder2.3.1/lang</span>&nbsp;下除了en.js和zh-cn.js之外的文件删掉，把&nbsp;<span style="text-decoration:underline">ckfinder2.3.1</span>&nbsp;下的changelog.txt，install.txt，license.txt，translations.txt删掉。</span></li><li style="list-style:inherit!important"><span style="line-height:1.5">把&nbsp;</span><span style="line-height:1.5"><span style="text-decoration:underline">ckfinder/CKFinderJava/WEB-INF/lib</span>&nbsp;下所有的jar包复制到<span style="text-decoration:underline">yourapp/WEB-INF/lib</span>下。</span></li><li style="list-style:inherit!important">把 ckfinder/CKFinderJava/WEB-INF/config.xml复制到<span style="text-decoration:underline">yourapp/WEB-INF</span>下，并改名为ckfinder.xml。</li></ul>
+<br>
+</div>
+<div><span style="font-family:arial,宋体,sans-serif; font-size:13px; line-height:24px; text-indent:30px"><img src="http://img.blog.csdn.net/20131010214522750?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemxfamF5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+</span></div>
+<div><span style="font-family:arial,宋体,sans-serif; font-size:13px; line-height:24px; text-indent:30px"></span>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+3. 在网页里使用CKEditor</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; Step1：找到需要放置CKEditor编辑器的页面，引入CKEditor的js文件（${contextPath}是JSTL写法，请改成你自己的路径写法，绝对路径或者相对路径）</p>
+<pre name="code" class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;${contextPath}/ckeditor4.1/ckeditor.js&quot;&gt;&lt;/script&gt;</pre>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">Step2：在需要提交的form里，写一个&lt;textarea&gt;</span><br>
+<pre name="code" class="html">&lt;form id=&quot;detailForm&quot; method=&quot;post&quot;&gt;
+    &lt;textarea id=&quot;content&quot; name=&quot;content&quot;&gt;&lt;/textarea&gt;
+    &lt;input type=&quot;button&quot; value=&quot;保存&quot; id=&quot;save&quot; onclick=&quot;save()&quot; /&gt;
+&lt;/form&gt;</pre>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">Step3：创建CKEditor实例</span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"></span></span></span>
+<pre name="code" class="html">&lt;script type=&quot;text/javascript&quot;&gt;
+    var editor = null;
+    window.onload = function(){
+        editor = CKEDITOR.replace('content'); //参数‘content’是textarea元素的id属性&#20540;
+    }
+&lt;/script&gt;</pre>
+<br>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp;注意上面代码中editor=CKEDITOR.repalce()必须写在window.onload事件里，或者写在textarea元素后面，以免出现content不存在的错误。上述代码并不是创建CKEditor实例的唯一方法，大家可以自行查阅资料。</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; Step4：在页面js中为CKEditor编辑器设置/获取&#20540;</p>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"></span></span></span>
+<pre name="code" class="javascript">editor.setData('这里是需要传递给CKEditor编辑器实例的&#20540;');
+editor.getData();</pre>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+注意，上面代码中用到了一个变量editor，就是Step3中定义的那个editor。这也就是为什么Step3里面要单独写var editor = null这句代码。当然，在&lt;textarea&gt;&lt;/textarea&gt;中直接设置&#20540;也可以，但是那只能在CKEDITOR.replace()之前起作用。</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; Step5：在后台java代码中获取CKEditor编辑器的&#20540;</p>
+<pre name="code" class="html">&lt;script type=&quot;text/javascript&quot;&gt;
+    function save(){
+        editor.updateElement(); //非常重要的一句代码
+        //前台验证工作
+        //提交到后台
+    }
+&lt;/script&gt;</pre>
+<br>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp;因为CKEditor编辑器取代了原来我们写的textarea元素，所以我们在编辑器里写的内容，其实都不在textarea中，因此，为了能在后台通过textarea获得&#20540;，必须用editor.updateElement()来更新textarea元素。这样，在后台java代码中就可以用request.getParameter('content');或者其他代码得到编辑器的内容了，否则得到的很可能不是编辑器里的内容。</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+<a target="_blank" name="configmethod" style="font-size:1em; background-color:rgb(255,255,255)"></a><span style="font-size:1em">4. CKEditor的三种配置方式</span></p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+方式一：修改ckeditor4.1/config.js文件</p>
+<pre name="code" class="html">CKEDITOR.editorConfig = function( config ) {
+    config.language = 'zh-cn';
+    config.uiColor = '#AADC6E';
+};</pre>
+<br>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">方式二：复制ckeditor4.1/config.js，仍然放在ckeditor4.1目录下，但是改名为myconfig.js，并在这个文件中修改配置。但是要在创建编辑器实例时指明配置文件路径：</span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><br>
+</span></span></span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"></span></span></span>
+<pre name="code" class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    var editor = null;
+    window.onload = function() {
+        editor = CKEDITOR.replace( 'content', {
+            customConfig:'${contextPath}/ckeditor4.1/myconfig.js'
+        });
+    };
+&lt;/script&gt;</pre>
+<br>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">方式三：在创建编辑器实例时指定配置</span><br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<pre name="code" class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    var editor = null;
+    window.onload = function() {
+        editor = CKEDITOR.replace( 'content', 
+            uiColor: '#9AB8F3',
+            language:'zh-cn'
+        });
+    };
+&lt;/script&gt;</pre>
+<br>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+使用第二种或者第三种方式的好处就在于，当你更新CKEditor版本时，不至于因为直接复制了新的config.js而覆盖掉个性配置。</p>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+<a target="_blank" name="configurations"></a>5. CKEditor的一些配置选项</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 完整的CKEditor的配置选项在&nbsp;<a target="_blank" href="http://docs.ckeditor.com/#!/api/CKEDITOR.config" target="_blank" style="color:rgb(68,68,68); text-decoration:none">这里</a>。下面是一些常用的配置。</p>
+<ul style="margin-left:45px; font-family:verdana,sans-serif; font-size:13px; line-height:19px">
+<li style="list-style:inherit!important">language，defaultLanguage，contentLanguage, uiColor</li><li style="list-style:inherit!important">autoGrow_maxHeight, autoGrow_minHeight, resize_maxHeight, resize_minHeight, resize_maxWidth, resize_minWidth</li><li style="list-style:inherit!important">toolbarCanCollapse, toolbarGroups</li><li style="list-style:inherit!important">forcePasteAsPlainText,&nbsp;pasteFromWordKeepsStructure,&nbsp;pasteFromWordRemoveFontStyles,&nbsp;pasteFromWordRemoveStyles</li><li style="list-style:inherit!important">font_names, fontSize_sizes</li></ul>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+<a target="_blank" name="aboutenter"></a>6. 关于CKEditor编辑器里面回车的问题</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 在CKEditor编辑器里面敲回车，默认是加一个&lt;p&gt;&lt;/p&gt;元素，而且在&lt;p&gt;之前和&lt;/p&gt;之后会加换行。这就造成一个问题，保存的数据最后可能会出现“\t\n”。当我们使用editor.setData(......)时，实际上变成了</p>
+<br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<pre name="code" class="javascript">editor.setData(......
+);</pre>
+<br>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">因为数据本身带有一个\t\n，使得js代码换行了，从而页面出错。可能还有其他方法解决这个问题，但是我采用的是禁止在回车变&lt;p&gt;&lt;/p&gt;时在后面添加换行。其方法是：</span><br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span></span>
+<pre style="margin-top:0px; margin-bottom:0px; white-space:pre-wrap; word-wrap:break-word; line-height:18px; font-family:'Courier New'!important">&lt;script type=&quot;text/javascript&quot;&gt;
+    <span style="color:rgb(0,0,255); line-height:1.5!important">var</span> editor = <span style="color:rgb(0,0,255); line-height:1.5!important">null</span><span style="line-height:1.5!important">;
+    window.onload </span>= <span style="color:rgb(0,0,255); line-height:1.5!important">function</span><span style="line-height:1.5!important">() {
+        editor </span>= CKEDITOR.replace( 'content'<span style="line-height:1.5!important">, {
+            customConfig:</span>'${contextPath}/ckeditor4.1/myconfig.js'<span style="line-height:1.5!important">,
+        
+            on: {
+                instanceReady: </span><span style="color:rgb(0,0,255); line-height:1.5!important">function</span><span style="line-height:1.5!important">( ev ) {
+                    </span><span style="color:rgb(0,0,255); line-height:1.5!important">this</span>.dataProcessor.writer.setRules( 'p'<span style="line-height:1.5!important">, {
+                        indent: </span><span style="color:rgb(0,0,255); line-height:1.5!important">false</span><span style="line-height:1.5!important">,
+                        breakBeforeOpen: </span><span style="color:rgb(0,0,255); line-height:1.5!important">false</span><span style="line-height:1.5!important">,   <span style="color:rgb(0,128,0); line-height:1.5!important">//&lt;p&gt;之前不加换行</span>
+                        breakAfterOpen: </span><span style="color:rgb(0,0,255); line-height:1.5!important">false</span><span style="line-height:1.5!important">,    <span style="color:rgb(0,128,0); line-height:1.5!important">//&lt;p&gt;之后不加换行</span>
+                        breakBeforeClose: </span><span style="color:rgb(0,0,255); line-height:1.5!important">false</span><span style="line-height:1.5!important">,  <span style="color:rgb(0,128,0); line-height:1.5!important">//&lt;/p&gt;之前不加换行</span>
+                        breakAfterClose: </span><span style="color:rgb(0,0,255); line-height:1.5!important">false    <span style="color:rgb(0,128,0); line-height:1.5!important">//&lt;/p&gt;之后不加换行7</span></span><span style="line-height:1.5!important">
+                    });
+                }
+            }
+        });
+    };
+</span>&lt;/script&gt;</pre>
+<br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">&nbsp;关于这部分内容，更多内容参看&nbsp;</span><a target="_blank" href="http://docs.ckeditor.com/#!/guide/dev_output_format" target="_blank" style="color:rgb(68,68,68); text-decoration:none; font-family:verdana,sans-serif; font-size:13px; line-height:19px">http://docs.ckeditor.com/#!/guide/dev_output_format</a><br>
+</span></span></span></span></span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+7. 将CKFinder整合进CKEditor</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 没有CKFinder，CKEditor作为一个编辑器，也是可以正常使用的，但是无法在编辑器里浏览服务器上的用户上传文件。所以要整合CKFinder。</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; Step1：在页面中引入CKFinder的js文件</p>
+<pre name="code" class="javascript">&lt;script type=&quot;text/javascript&quot; src=&quot;${contextPath}/ckfinder2.3.1/ckfinder.js&quot;&gt;&lt;/script&gt;</pre>
+<pre style="margin-top:0px; margin-bottom:0px; white-space:pre-wrap; word-wrap:break-word; line-height:18px; font-family:'Courier New'!important">&lt;script type=&quot;text/javascript&quot;&gt;
+    <span style="color:rgb(0,0,255); line-height:1.5!important">var</span> editor = <span style="color:rgb(0,0,255); line-height:1.5!important">null</span><span style="line-height:1.5!important">;
+    window.onload </span>= <span style="color:rgb(0,0,255); line-height:1.5!important">function</span><span style="line-height:1.5!important">() {
+        editor </span>= CKEDITOR.replace( 'content'<span style="line-height:1.5!important">, {
+            customConfig:</span>'${contextPath}/ckeditor4.1/jwc_config.js'<span style="line-height:1.5!important">
+        });
+        <span style="color:rgb(255,0,0); line-height:1.5!important">CKFinder.setupCKEditor( editor, </span></span><span style="color:rgb(255,0,0); line-height:1.5!important">'${contextPath}/ckfinder2.3.1/'</span><span style="line-height:1.5!important"><span style="color:rgb(255,0,0); line-height:1.5!important"> );</span>
+    };
+</span>&lt;/script&gt;</pre>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+上面标红的代码，第一个参数是CKEditor实例，第二个参数是ckfinder的目录(最好写绝对路径)，注意最后要带斜杠'/'。 &nbsp; &nbsp;</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; Step3：在CKEditor里配置通过哪个页面或者程序来浏览和上传文件</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 找到你的项目里配置CKEditor的位置(参看本文<a target="_blank" href="http://www.cnblogs.com/yuepeng/archive/2013/04/01/2992097.html#configmethod" style="color:rgb(68,68,68); text-decoration:none">CKEditor的三种配置方式</a>部分)，配置以下内容：</p>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<pre name="code" class="javascript">CKEDITOR.editorConfig = function( config ) {
+    //其他一些配置
+    filebrowserBrowseUrl = '/ckfinder2.3.1/ckfinder.html';
+    filebrowserImageBrowseUrl = '/ckfinder2.3.1/ckfinder.html?type=Images';
+    filebrowserFlashBrowseUrl = '/ckfinder2.3.1/ckfinder.html?type=Flash';
+    filebrowserUploadUrl = '/ckfinder2.3.1/core/connector/java/connector.java?command=QuickUpload&amp;type=Files';
+    filebrowserImageUploadUrl = '/ckfinder2.3.1/core/connector/java/connector.java?command=QuickUpload&amp;type=Images';
+    filebrowserFlashUploadUrl = '/ckfinder2.3.1/core/connector/java/connector.java?command=QuickUpload&amp;type=Flash';
+};</pre>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+上面的六行代码，指定了通过ckfinder2.3.1/ckfinder.html来浏览图片或者其他文件，通过/ckfinder2.3.1/core/connector/java/connector.java来上传文件。</p>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+<a target="_blank" name="configckfinder"></a>8. 配置CKFinder</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 找到yourapp/WEB-INF/ckfinder.xml，编辑其中的内容。下面简要介绍一下每一项的含义，其他未介绍的内容请参照ckfinder.xml本身的注释以及&nbsp;<a target="_blank" href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration" target="_blank" style="color:rgb(68,68,68); text-decoration:none">这里</a>。</p>
+<ul style="margin-left:45px; font-family:verdana,sans-serif; font-size:13px; line-height:19px">
+<li style="list-style:inherit!important">enabled：true表示开启ckfinder功能。默认是false。</li><li style="list-style:inherit!important">baseDir：上传文件存放的路径，这里必须写从物理地址的全路径，比如C:\myapp\uploadfiles\。不能写相对路径，而且最后一定要加斜杠“/”。这一项可以不配置，留空的话，系统会自动根据baseURL去找到baseDir。但是建议还是配置上比较好。</li><li style="list-style:inherit!important">baseURL：上传文件存放的URL，这里可以写一个相对路径或者一个完整的URL，比如&quot;http://www.example.com/uploadfiles/&quot; 或者 &quot;/uploadfiles/&quot;。注意，一定要在最后加一个斜杠“/”。更多解释参看<a target="_blank" href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration/baseURL_and_baseDir" target="_blank" style="color:rgb(68,68,68); text-decoration:none">这里</a>。</li><li style="list-style:inherit!important">types：指定上传文件的类型。它的子元素是&lt;type name=&quot;&quot;&gt;&lt;/type&gt;，其中的name要和上面CKEditor里配置的路径的type一致。比如上面配置了filebrowserImageBrowseUrl = 'ckfinder2.3.1/ckfinder.html?<span style="color:rgb(255,0,0)">type=Images</span>'，那么就要配一个&lt;type name=&quot;Images&quot;&gt;&lt;/type&gt;。在&lt;type&gt;&lt;/type&gt;元素里，可以配置该类型文件存放的子目录(放在baseDir下)、子URL、文件最大字节数、允许上传的文件扩展名、禁止上传的文件扩展名。</li><li style="list-style:inherit!important">disallowUnsafeCharacters：设置为false。如果设置为true，在创建文件夹或者上传文件时，名字里不能包含不安全的字符。这只在IIS里生效。</li><li style="list-style:inherit!important">checkDoubleExtension：检查多级扩展名，或许你禁止用户上传php文件，允许用户上传rar文件。如果此项设置为false，文件foo.php.rar就会上传到服务器，这不安全。因此此项设置为true。</li><li style="list-style:inherit!important">secureImageUploads：设置此项为true，可以检查文件到底是不是图片，很有可能有人把一个可执行文件加了后缀变成了.jpg，但实际上它不是一个图片文件。</li></ul>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+<a target="_blank" name="configfinderservlet"></a>9. 在项目里配置CKFinder的servlet</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 找到yourapp/WEB-INF/web.xml，添加以下内容：</p>
+<pre name="code" class="html">&lt;servlet&gt; 
+    &lt;servlet-name&gt;ConnectorServlet&lt;/servlet-name&gt; 
+    &lt;servlet-class&gt;com.ckfinder.connector.ConnectorServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt; 
+        &lt;param-name&gt;XMLConfig&lt;/param-name&gt; 
+        &lt;param-value&gt;/WEB-INF/ckfinder.xml&lt;/param-value&gt; 
+    &lt;/init-param&gt; 
+    &lt;init-param&gt; 
+        &lt;param-name&gt;debug&lt;/param-name&gt; 
+        &lt;param-value&gt;false&lt;/param-value&gt; 
+    &lt;/init-param&gt; 
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; 
+&lt;/servlet&gt; 
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;ConnectorServlet&lt;/servlet-name&gt; 
+    &lt;url-pattern&gt; /ckfinder2.3.1/core/connector/java/connector.java &lt;/url-pattern&gt; 
+&lt;/servlet-mapping&gt;</pre>
+<br>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+上面配置里第一个init-param是指定CKFinder的配置文件位置。也就是上面<a target="_blank" href="http://www.cnblogs.com/yuepeng/archive/2013/04/01/2992097.html#configckfinder" style="color:rgb(68,68,68); text-decoration:none">第8部分</a>提到的那个配置文件。</p>
+<h2 style="margin-top:10px; margin-bottom:3px; font-size:1em; font-family:verdana,sans-serif; line-height:19px">
+<a target="_blank" name="safe"></a>10. 更安全地使用CKFinder</h2>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 目前来说，CKFinder能够正常地使用了。但是，即便没有你的项目的管理权限，在浏览器中输入yoursite/ckfinder2.3.1/ckfinder.html，也一样能看到你的服务器上存放的那些文件，他们甚至可以上传和删除文件。有两个地方可以加强CKFinder的安全性。</p>
+<h3 style="font-size:13px; font-family:verdana,sans-serif; line-height:19px">&nbsp; &nbsp; 在yourapp/WEB-INF/ckfinder.xml里配置访问权限</h3>
+<pre name="code" class="html">&lt;userRoleSessionVar&gt;CKFinder_UserRole&lt;/userRoleSessionVar&gt;
+&lt;accessControls&gt;
+    &lt;accessControl&gt;
+        &lt;role&gt;admin&lt;/role&gt;
+        &lt;resourceType&gt;*&lt;/resourceType&gt;
+        &lt;folder&gt;/&lt;/folder&gt;
+        &lt;folderView&gt;true&lt;/folderView&gt;
+        &lt;folderCreate&gt;true&lt;/folderCreate&gt;
+        &lt;folderRename&gt;true&lt;/folderRename&gt;
+        &lt;folderDelete&gt;false&lt;/folderDelete&gt;
+        &lt;fileView&gt;true&lt;/fileView&gt;
+        &lt;fileUpload&gt;true&lt;/fileUpload&gt;
+        &lt;fileRename&gt;true&lt;/fileRename&gt;
+        &lt;fileDelete&gt;false&lt;/fileDelete&gt;
+    &lt;/accessControl&gt;
+&lt;/accessControls&gt;</pre>
+<br>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">&nbsp;然后在java代码中合适的位置，比如login()方法里，添加以下代码</span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<pre name="code" class="java">request.getSession().setAttribute(&quot;CKFinder_UserRole&quot;, &quot;admin&quot;);</pre>
+<br>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">&nbsp;系统会在访问yoursite/ckfinder2.3.1/ckfinder.html时（包括点击下图的“浏览服务器”按钮），检查CKFinder_UserRole的&#20540;是什么，它具有的权限是什么。如果一个人没有登录系统，而是直接访问yoursite/ckfinder2.3.1/ckfinder.html，那么系统就会检查到CKFinder_UserRole是null，他就看不到服务器上的文件。</span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"><img src="http://img.blog.csdn.net/20131010215625250?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemxfamF5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+<br>
+</span></span></span></span></div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<h3 style="font-size:13px; font-family:verdana,sans-serif; line-height:19px">自写代码检查用户是否有权限使用CKFinder</h3>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 在yourapp/WEB-INF/web.xml里，修改关于ckfinder的配置，增加一段代码：</p>
+<pre name="code" class="html">&lt;servlet&gt; 
+    &lt;servlet-name&gt;ConnectorServlet&lt;/servlet-name&gt; 
+    &lt;servlet-class&gt;com.ckfinder.connector.ConnectorServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;configuration&lt;/param-name&gt;
+        &lt;param-value&gt;mypackage.CKFinderConfiguration&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt; 
+        &lt;param-name&gt;XMLConfig&lt;/param-name&gt; 
+        &lt;param-value&gt;/WEB-INF/ckfinder.xml&lt;/param-value&gt; 
+    &lt;/init-param&gt; 
+    &lt;init-param&gt; 
+        &lt;param-name&gt;debug&lt;/param-name&gt; 
+        &lt;param-value&gt;false&lt;/param-value&gt; 
+    &lt;/init-param&gt; 
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt; 
+&lt;/servlet&gt; 
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;ConnectorServlet&lt;/servlet-name&gt; 
+    &lt;url-pattern&gt; /ckfinder2.3.1/core/connector/java/connector.java &lt;/url-pattern&gt; 
+&lt;/servlet-mapping&gt; </pre>
+<br>
+<span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px">&nbsp;在包路径mypackage下创建一个类CKFinderConfiguration(包路径和类名按照自己的项目代码组织情况来取名)，代码如下：</span><br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span></span>
+<pre name="code" class="java">import com.ckfinder.connector.configuration.Configuration;
+public class CKFinderConfiguration extends Configuration {
+    public CKFinderConfiguration(ServletConfig servletConfig) {
+        super(servletConfig);
+    }
+    @Override
+    protected Configuration createConfigurationInstance() {
+        return new CKFinderConfiguration(this.servletConf);
+    }
+    @Override
+    public boolean checkAuthentication(final HttpServletRequest request){
+        String userid = request.getSession().getAttribute(&quot;userid&quot;);
+        boolean logined = !userid.equals(&quot;&quot;);
+        return logined;
+    }
+}</pre>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+关键在于checkAuthentication()方法。可以在checkAuthentication()方法里编写关于用户认证的一些判断，比如用户是否登录系统，用户是否有权限管理上传文件。如果符合条件，就返回ture，否则返回false。</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+&nbsp; &nbsp; 两种方法都可以让ckfinder更安全，当然同时使用会更好。但是注意两者区别，后者只能在比较粗的粒度进行控制。</p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+以上内容转自：<a target="_blank" href="http://www.cnblogs.com/yuepeng/archive/2013/04/01/2992097.html#download">http://www.cnblogs.com/yuepeng/archive/2013/04/01/2992097.html#download</a></p>
+<p style="font-family:verdana,sans-serif; font-size:13px; line-height:19px; margin:10px auto!important">
+</p>
+<div style="margin:0px; line-height:25px; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:14px">
+<span style="color:rgb(255,102,0)"><strong>注意：SSH下图片上传没反应的话</strong></span></div>
+<div style="margin:0px; line-height:25px; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:14px">
+<span style="color:rgb(255,102,0)"><strong>把</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp;&lt;filter-mapping&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp; &lt;filter-name&gt;Struts2&lt;/filter-name&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp; &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp; &lt;/filter-mapping&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>改成</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp;&lt;filter-mapping&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp; &lt;filter-name&gt;Struts2&lt;/filter-name&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp; &lt;url-pattern&gt;*.action&lt;/url-pattern&gt;</strong></span><br>
+<span style="color:rgb(255,102,0)"><strong>&nbsp; &lt;/filter-mapping&gt;</strong></span></div>
+<br>
+<p></p>
+-------------------------------------<br>
+<h1 class="postTitle" style="margin:0px; padding:0px 0px 10px 5px; font-size:12px; line-height:1.5em; width:718px; clear:both; font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; background-color:rgb(245,248,250)">
+<a target="_blank" id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/Setme/archive/2012/06/05/2536568.html" style="margin:0px; padding:0px; text-decoration:none; font-family:微软雅黑,黑体,Arial; font-size:18px"><span style="color:#000000">CKEditor配置属性</span></a></h1>
+<br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+<span style="margin:0px; padding:0px">一、使用方法：</span></p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+1、在页面&lt;head&gt;中引入ckeditor核心文件ckeditor.js</p>
+<div class="cnblogs_code" style="margin:5px 0px; padding:5px; background-color:rgb(245,245,245); border:1px solid rgb(204,204,204); overflow:auto; color:rgb(85,85,85); line-height:24px; font-family:'Courier New'!important">
+<pre style="margin-top:0px; margin-bottom:0px; padding:0px; white-space:pre-wrap; word-wrap:break-word; font-family:'Courier New'!important">&lt;script type=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">text/javascript</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span>src=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">ckeditor/ckeditor.js</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span>&gt;&lt;/script&gt;</pre>
+</div>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+2、在使用编辑器的地方插入HTML控件&lt;textarea&gt;</p>
+<div class="cnblogs_code" style="margin:5px 0px; padding:5px; background-color:rgb(245,245,245); border:1px solid rgb(204,204,204); overflow:auto; color:rgb(85,85,85); line-height:24px; font-family:'Courier New'!important">
+<pre style="margin-top:0px; margin-bottom:0px; padding:0px; white-space:pre-wrap; word-wrap:break-word; font-family:'Courier New'!important">&lt;textarea id=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">TextArea1</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span> cols=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">20</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span> rows=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">2</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">class</span>=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">ckeditor</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span>&gt;&lt;/textarea&gt;</pre>
+</div>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+如果是ASP.NET环境，也可用服务器端控件&lt;TextBox&gt;</p>
+<div class="cnblogs_code" style="margin:5px 0px; padding:5px; background-color:rgb(245,245,245); border:1px solid rgb(204,204,204); overflow:auto; color:rgb(85,85,85); line-height:24px; font-family:'Courier New'!important">
+<pre style="margin-top:0px; margin-bottom:0px; padding:0px; white-space:pre-wrap; word-wrap:break-word; font-family:'Courier New'!important">&lt;asp:TextBox ID=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">tbContent</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span> runat=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">server</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span>TextMode=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">MultiLine</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span> <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">class</span>=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">ckeditor</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span>&gt;&lt;/asp:TextBox&gt;</pre>
+</div>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+注意在控件中加上 class=&quot;ckeditor&quot; 。</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+3、将相应的控件替换成编辑器代码</p>
+<pre style="margin-top:0px; margin-bottom:0px; padding:0px; white-space:pre-wrap; word-wrap:break-word; color:rgb(85,85,85); line-height:24px; font-family:'Courier New'!important">&lt;script type=<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">text/javascript</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&quot;</span>&gt;<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+　　CKEDITOR.replace(</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">'</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">TextArea1</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">'</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">);
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">如果是在ASP.NET环境下用的服务器端控件&lt;TextBox&gt;</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+　　CKEDITOR.replace(</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">'</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">tbContent</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">'</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">);
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">如果&lt;TextBox&gt;控件在母版页中，要这样写</span>
+　　CKEDITOR.replace(<span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">'</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">&lt;%=tbContent.ClientID.Replace(&quot;_&quot;,&quot;$&quot;) %&gt;</span><span style="margin:0px; padding:0px; color:rgb(128,0,0); line-height:1.5!important">'</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">);
+</span>&lt;/script&gt;</pre>
+<br>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px"><span style="font-family:verdana,sans-serif; font-size:13px; line-height:19px"></span></span></span></span>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+4、配置编辑器</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; ckeditor的配置都集中在 ckeditor/config.js文件中，下面是一些常用的配置参数：</p>
+<pre style="margin-top:0px; margin-bottom:0px; padding:0px; white-space:pre-wrap; word-wrap:break-word; color:rgb(85,85,85); line-height:24px; font-family:'Courier New'!important"><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 界面语言，默认为 'en'</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    config.language </span>= 'zh-cn'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 设置宽高</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    config.width </span>= 400<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+    config.height </span>= 400<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 编辑器样式，有三种：'kama'（默认）、'office2003'、'v2'</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    config.skin </span>= 'v2'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 背景颜色</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    config.uiColor </span>= '#FFF'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">工具栏（基础'Basic'、全能'Full'、自定义）plugins/toolbar/plugin.js</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    config.toolbar </span>= 'Basic'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+    config.toolbar </span>= 'Full'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    这将配合：
+    config.toolbar_Full </span>=<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> [
+      [</span>'Source','-','Save','NewPage','Preview','-','Templates'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+      [</span>'Cut','Copy','Paste','PasteText','PasteFromWord','-','Print','SpellChecker', 'Scayt'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+      [</span>'Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+      [</span>'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select','Button', 'ImageButton', 'HiddenField'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+       </span>'/'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+      [</span>'Bold','Italic','Underline','Strike','-','Subscript','Superscript'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+       [</span>'NumberedList','BulletedList','-','Outdent','Indent','Blockquote'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+       [</span>'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+       [</span>'Link','Unlink','Anchor'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+      [</span>'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+      </span>'/'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        [</span>'Styles','Format','Font','FontSize'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+       [</span>'TextColor','BGColor'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">]
+    ];
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">工具栏是否可以被收缩</span>
+    config.toolbarCanCollapse = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+ 
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">工具栏的位置</span>
+    config.toolbarLocation ='top';<span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">可选：bottom</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">工具栏默认是否展开</span>
+    config.toolbarStartupExpanded = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+　　 </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 取消 “拖拽以改变尺寸”功能 plugins/resize/plugin.js</span>
+    config.resize_enabled = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">改变大小的最大高度</span>
+<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    config.resize_maxHeight </span>= 3000<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">改变大小的最大宽度</span>
+    config.resize_maxWidth =3000<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">改变大小的最小高度</span>
+    config.resize_minHeight =250<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">改变大小的最小宽度</span>
+    config.resize_minWidth =750<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 当提交包含有此编辑器的表单时，是否自动更新元素内的数据</span>
+    config.autoUpdateElement =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 设置是使用绝对目录还是相对目录，为空为相对目录</span>
+   config.baseHref = ''
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 编辑器的z-index&#20540;</span>
+   config.baseFloatZIndex = 10000<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">   //</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">设置快捷键</span>
+    config.keystrokes =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> [
+       [CKEDITOR.ALT </span>&#43; 121 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">F10</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'toolbarFocus' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">获取焦点</span>
+        [CKEDITOR.ALT &#43; 122 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">F11</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'elementsPathFocus' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">元素焦点</span>
+<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+       [ CKEDITOR.SHIFT </span>&#43; 121 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">F10</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>,'contextMenu' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">文本菜单</span>
+<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+       [ CKEDITOR.CTRL </span>&#43; 90 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">Z</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'undo' ], <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">撤销</span>
+        [ CKEDITOR.CTRL &#43; 89 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">Y</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'redo' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">重做</span>
+        [CKEDITOR.CTRL &#43; CKEDITOR.SHIFT &#43; 90 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">Z</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'redo' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//
+</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+        [ CKEDITOR.CTRL </span>&#43; 76 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">L</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'link' ], <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">链接</span>
+<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+        [ CKEDITOR.CTRL </span>&#43; 66 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">B</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'bold' ], <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">粗体</span>
+        [ CKEDITOR.CTRL &#43; 73 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">I</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'italic' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">斜体</span>
+       [ CKEDITOR.CTRL &#43; 85 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">U</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>, 'underline' ],  <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">下划线</span>
+<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+        [ CKEDITOR.ALT </span>&#43; 109 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">-</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span>,'toolbarCollapse'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> ]
+    ]
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">设置快捷键 可能与浏览器快捷键冲突plugins/keystrokes/plugin.js.</span>
+    config.blockedKeystrokes =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> [
+       CKEDITOR.CTRL </span>&#43; 66 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">B</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        CKEDITOR.CTRL </span>&#43; 73 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">I</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       CKEDITOR.CTRL </span>&#43; 85 <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">/*</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">U</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">*/</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">
+    ]
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">设置编辑内元素的背景色的取&#20540;plugins/colorbutton/plugin.js.</span>
+    config.colorButton_backStyle =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> {
+       element : </span>'span'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        styles : { </span>'background-color' : '#(color)'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">}
+    }
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">设置前景色的取&#20540; plugins/colorbutton/plugin.js</span>
+    config.colorButton_colors = '<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">000,800000,8B4513,2F4F4F,008080,000080,4B0082,696969,B22222,A52A2A,DAA520,
+
+       006400,40E0D0,0000CD,800080,808080,F00,FF8C00,FFD700,008000,0FF,00F,EE82EE,
+
+       A9A9A9,FFA07A,FFA500,FFFF00,00FF00,AFEEEE,ADD8E6,DDA0DD,D3D3D3,FFF0F5,
+
+       FAEBD7,FFFFE0,F0FFF0,F0FFFF,F0F8FF,E6E6FA,FFF’
+
+    //是否在选择颜色时显示“其它颜色”选项plugins/colorbutton/plugin.js
+    config.colorButton_enableMore =false
+
+    //区块的前景色默认&#20540;设置 plugins/colorbutton/plugin.js
+    config.colorButton_foreStyle = {
+        element : </span>'span'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       styles : { </span>'color' : '#(color)'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> }
+    };
+
+    //所需要添加的CSS文件 在此添加 可使用相对路径和网站的绝对路径
+    config.contentsCss = </span>'./contents.css';
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">文字方向</span>
+    config.contentsLangDirection ='rtl'; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">从左到右</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">CKeditor的配置文件 若不想配置 留空即可</span>
+    CKEDITOR.replace( 'myfiled', { customConfig : './config.js'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } );
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">界面编辑框的背景色 plugins/dialog/plugin.js</span>
+    config.dialog_backgroundCoverColor = '#fffefd'; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">可设置参考</span>
+    config.dialog_backgroundCoverColor = 'white' <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">默认</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">背景的不透明度 数&#20540;应该在：0.0～1.0 之间plugins/dialog/plugin.js</span>
+    config.dialog_backgroundCoverOpacity =0.5
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">移动或者改变元素时 边框的吸附距离 单位：像素plugins/dialog/plugin.js</span>
+    config.dialog_magnetDistance = 20<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否拒绝本地拼写检查和提示 默认为拒绝 目前仅firefox和safari支持plugins/wysiwygarea/plugin.js.</span>
+    config.disableNativeSpellChecker =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">进行表&#26684;编辑功能 如：添加行或列 目前仅firefox支持plugins/wysiwygarea/plugin.js</span>
+    config.disableNativeTableHandles =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span>; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">默认为不开启</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否开启 图片和表&#26684; 的改变大小的功能config.disableObjectResizing = true;</span>
+    config.disableObjectResizing= <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span> <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">默认为开启</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">设置HTML文档类型</span>
+    config.docType ='&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd%22'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> ;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否对编辑区域进行渲染plugins/editingblock/plugin.js</span>
+    config.editingBlock = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">编辑器中回车产生的标签</span>
+    config.enterMode =CKEDITOR.ENTER_P; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">可选：CKEDITOR.ENTER_BR或CKEDITOR.ENTER_DIV</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否使用HTML实体进行输出 plugins/entities/plugin.js</span>
+    config.entities = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">定义更多的实体 plugins/entities/plugin.js</span>
+    config.entities_additional = '#39'; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">其中#代替了&amp;</span>
+ 
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否转换一些难以显示的字符为相应的HTML字符plugins/entities/plugin.js</span>
+    config.entities_greek = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否转换一些拉丁字符为HTMLplugins/entities/plugin.js</span>
+    config.entities_latin = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否转换一些特殊字符为ASCII字符 如&quot;This is Chinese:汉语.&quot;转换为&quot;This is Chinese: 汉语.&quot;plugins/entities/plugin.js</span>
+    config.entities_processNumerical =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">添加新组件</span>
+    config.extraPlugins ='myplugin'; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">非默认 仅示例</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">使用搜索时的高亮色 plugins/find/plugin.js</span>
+    config.find_highlight =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> {
+        element : </span>'span'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        styles: { </span>'background-color' : '#ff0', 'color' : '#00f'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> }
+    };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">默认的字体名 plugins/font/plugin.js</span>
+    config.font_defaultLabel = 'Arial'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">字体编辑时的字符集 可以添加常用的中文字符：宋体、楷体、黑体等plugins/font/plugin.js</span>
+    config.font_names = 'Arial;Times NewRoman;Verdana'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">文字的默认式样 plugins/font/plugin.js</span>
+    config.font_style =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> {
+        element   : </span>'span'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        styles  : { </span>'font-family' : '#(family)'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> },
+        overrides : [ { element :</span>'font', attributes : { 'face' : <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">null</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } } ]
+    };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">字体默认大小 plugins/font/plugin.js</span>
+    config.fontSize_defaultLabel = '12px'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">字体编辑时可选的字体大小 plugins/font/plugin.js</span>
+    config.fontSize_sizes='8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px'
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">设置字体大小时 使用的式样 plugins/font/plugin.js</span>
+    config.fontSize_style =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> {
+        element   : </span>'span'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       styles   : { </span>'font-size' : '#(size)'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> },
+        overrides : [ {element : </span>'font', attributes : { 'size' : <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">null</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } } ]
+    };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否强制复制来的内容去除&#26684;式plugins/pastetext/plugin.js</span>
+    config.forcePasteAsPlainText =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">不去除</span>
+
+   <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否强制用“&amp;”来代替“&amp;amp;”plugins/htmldataprocessor/plugin.js</span>
+    config.forceSimpleAmpersand = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对address标签进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_address = { element : 'address', attributes : { class :'styledAddress'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对DIV标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_div = { element : 'div', attributes : { class :'normalDiv'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对H1标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_h1 = { element : 'h1', attributes : { class :'contentTitle1'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对H2标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_h2 = { element : 'h2', attributes : { class :'contentTitle2'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对H3标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_h1 = { element : 'h3', attributes : { class :'contentTitle3'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对H4标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_h1 = { element : 'h4', attributes : { class :'contentTitle4'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对H5标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_h1 = { element : 'h5', attributes : { class :'contentTitle5'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对H6标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_h1 = { element : 'h6', attributes : { class :'contentTitle6'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> } };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对P标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_p = { element : 'p', attributes : { class : 'normalPara'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> }};
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对PRE标签自动进行&#26684;式化 plugins/format/plugin.js</span>
+    config.format_pre = { element : 'pre', attributes : { class : 'code'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">} };
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">用分号分隔的标签名字 在工具栏上显示plugins/format/plugin.js</span>
+    config.format_tags ='p;h1;h2;h3;h4;h5;h6;pre;address;div'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否使用完整的html编辑模式如使用，其源码将包含：&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;等标签</span>
+    config.fullPage = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否忽略段落中的空字符 若不忽略 则字符将以“”表示plugins/wysiwygarea/plugin.js</span>
+    config.ignoreEmptyParagraph = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">在清除图片属性框中的链接属性时 是否同时清除两边的&lt;a&gt;标签plugins/image/plugin.js</span>
+    config.image_removeLinkByEmptyURL = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">一组用逗号分隔的标签名称，显示在左下角的层次嵌套中plugins/menu/plugin.js.</span>
+    config.menu_groups='clipboard,form,tablecell,tablecellproperties,tablerow,tablecolumn,table,anchor,link,image,flash,checkbox,radio,textfield,hiddenfield,imagebutton,button,select,textarea'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">显示子菜单时的延迟，单位：ms plugins/menu/plugin.js</span>
+    config.menu_subMenuDelay = 400<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">当执行“新建”命令时，编辑器中的内容plugins/newpage/plugin.js</span>
+    config.newpage_html = ''<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">当从word里复制文字进来时，是否进行文字的&#26684;式化去除plugins/pastefromword/plugin.js</span>
+    config.pasteFromWordIgnoreFontFace = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span>; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">默认为忽略&#26684;式</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否使用&lt;h1&gt;&lt;h2&gt;等标签修饰或者代替从word文档中粘贴过来的内容plugins/pastefromword/plugin.js</span>
+    config.pasteFromWordKeepsStructure = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">从word中粘贴内容时是否移除&#26684;式plugins/pastefromword/plugin.js</span>
+    config.pasteFromWordRemoveStyle =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对应后台语言的类型来对输出的HTML内容进行&#26684;式化，默认为空</span>
+    config.protectedSource.push( /&lt;&quot;?[&quot;s&quot;S]*?&quot;?&gt;/g );   <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> PHP Code</span>
+    config.protectedSource.push( <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">g );   // ASP Code</span>
+    config.protectedSource.push(/(]&#43;&gt;[&quot;s|&quot;S]*?&lt;&quot;/asp:[^&quot;&gt;]&#43;&gt;)|(]&#43;&quot;/&gt;)/gi );   <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> ASP.NetCode</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">当输入：shift&#43;Enter时插入的标签</span>
+    config.shiftEnterMode = CKEDITOR.ENTER_P; <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">可选：CKEDITOR.ENTER_BR或CKEDITOR.ENTER_DIV</span>
+
+    <span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">可选的表情替代字符 plugins/smiley/plugin.js.</span>
+    config.smiley_descriptions =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> [
+        </span>':)', ':(', ';)', ':D', ':/',':P'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        </span>'', '', '', '', '', ''<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        </span>'', ';(', '', '','', ''<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+        </span>'', ':kiss', ''<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> ];
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">对应的表情图片 plugins/smiley/plugin.js</span>
+    config.smiley_images =<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> [
+       </span>'regular_smile.gif','sad_smile.gif','wink_smile.gif','teeth_smile.gif','confused_smile.gif','tounge_smile.gif'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       </span>'embaressed_smile.gif','omg_smile.gif','whatchutalkingabout_smile.gif','angry_smile.gif','angel_smile.gif','shades_smile.gif'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       </span>'devil_smile.gif','cry_smile.gif','lightbulb.gif','thumbs_down.gif','thumbs_up.gif','heart.gif'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       </span>'broken_heart.gif','kiss.gif','envelope.gif'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">];
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">表情的地址 plugins/smiley/plugin.js</span>
+    config.smiley_path = 'plugins/smiley/images/'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">页面载入时，编辑框是否立即获得焦点plugins/editingblock/plugin.js plugins/editingblock/plugin.js.</span>
+    config.startupFocus = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">载入时，以何种方式编辑 源码和所见即所得 &quot;source&quot;和&quot;wysiwyg&quot;plugins/editingblock/plugin.js.</span>
+    config.startupMode ='wysiwyg'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">载入时，是否显示框体的边框plugins/showblocks/plugin.js</span>
+    config.startupOutlineBlocks = <span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">false</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">是否载入样式文件 plugins/stylescombo/plugin.js.</span>
+    config.stylesCombo_stylesSet = 'default'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">以下为可选</span>
+    config.stylesCombo_stylesSet = 'mystyles'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+    config.stylesCombo_stylesSet </span>= 'mystyles:/editorstyles/styles.js'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+    config.stylesCombo_stylesSet </span>='mystyles:http://www.example.com/editorstyles/styles.js'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">起始的索引&#20540;</span>
+    config.tabIndex = 0<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">当用户键入TAB时，编辑器走过的空&#26684;数，(&amp;nbsp;)当&#20540;为0时，焦点将移出编辑框 plugins/tab/plugin.js</span>
+    config.tabSpaces = 0<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">默认使用的模板 plugins/templates/plugin.js.</span>
+    config.templates = 'default'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">用逗号分隔的模板文件plugins/templates/plugin.js.</span>
+    config.templates_files = [ 'plugins/templates/templates/default.js'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> ]
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">当使用模板时，“编辑内容将被替换”框是否选中plugins/templates/plugin.js</span>
+    config.templates_replaceContent =<span style="margin:0px; padding:0px; color:rgb(0,0,255); line-height:1.5!important">true</span><span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">主题</span>
+    config.theme = 'default'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+    </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">撤销的记录步数 plugins/undo/plugin.js</span>
+    config.undoStackSize =20<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">;
+
+</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important"> 在 CKEditor 中集成 CKFinder，注意 ckfinder的路径选择要正确。</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">
+//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">CKFinder.SetupCKEditor(null, '/ckfinder/');</span></pre>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+<span style="margin:0px; padding:0px">二、 一些使用技巧</span></p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+1、在页面中即时设置编辑器</p>
+<pre style="margin-top:0px; margin-bottom:0px; padding:0px; white-space:pre-wrap; word-wrap:break-word; color:rgb(85,85,85); line-height:24px; font-family:'Courier New'!important">&lt;script type=&quot;text/javascript&quot;&gt;
+　　<span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">示例1：设置工具栏为基本工具栏，高度为70</span>
+   CKEDITOR.replace('&lt;%=tbLink.ClientID.Replace(&quot;_&quot;,&quot;$&quot;) %&gt;'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+       { toolbar:</span>'Basic', height:70<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important"> });
+　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">示例2：工具栏为自定义类型</span>
+   CKEDITOR.replace( 'editor1'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+         {
+             toolbar :
+            [
+　　　　　　　　  </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">加粗     斜体，     下划线      穿过线      下标字        上标字</span>
+               ['Bold','Italic','Underline','Strike','Subscript','Superscript'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+　　　　　　　　  </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">数字列表          实体列表            减小缩进    增大缩进</span>
+               ['NumberedList','BulletedList','-','Outdent','Indent'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+　　　　　　　　  </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">左对齐             居中对齐          右对齐          两端对齐</span>
+               ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+　　　　　　　　  </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">超链接 取消超链接 锚点</span>
+               ['Link','Unlink','Anchor'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+　　　　　　　　  </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">图片   flash    表&#26684;       水平线            表情       特殊字符        分页符</span>
+               ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+</span>'/'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">,
+　　　　　　　　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">样式       &#26684;式      字体    字体大小</span>
+               ['Styles','Format','Font','FontSize'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+　　　　　　　　  </span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">文本颜色     背景颜色</span>
+               ['TextColor','BGColor'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">],
+　　　　　　　　　</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">//</span><span style="margin:0px; padding:0px; color:rgb(0,128,0); line-height:1.5!important">全屏           显示区块</span>
+               ['Maximize', 'ShowBlocks','-'<span style="margin:0px; padding:0px; color:rgb(0,0,0); line-height:1.5!important">]
+             ]
+         }
+    );
+</span>&lt;/script&gt;</pre>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+<span style="margin:0px; padding:0px">三、精简ckeditor</span></p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; 在部署到Web服务器上时，下列文件夹和文件都可以删除：</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; /_samples ：示例文件夹；</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; /_source ：未压缩源程序；</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; /lang文件夹下除 zh-cn.js、en.js以外的文件（也可以根据需要保留其他语言文件）；</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; 根目录下的changes.html(更新列表)，install.html(安装指向)，license.html(使用许可)；</p>
+<p style="padding-top:0px; padding-bottom:0px; color:rgb(85,85,85); font-family:verdana,'ms song',宋体,Arial,微软雅黑,Helvetica,sans-serif; line-height:24px; background-color:rgb(245,248,250); margin:10px auto!important">
+&nbsp;&nbsp;&nbsp; /skins 目录下不需要的皮肤，一般用V2(简单，朴素)，如果只保留V2则必须在config.js中指定皮肤</p>
+</div>
+</div>
+<div><span style="font-size:13px; text-indent:30px"><span style="font-family:verdana,sans-serif"><span style="line-height:19px">CKEditor的配置属性转载自：<a target="_blank" href="http://www.cnblogs.com/Setme/archive/2012/06/05/2536568.html">http://www.cnblogs.com/Setme/archive/2012/06/05/2536568.html</a></span></span></span></div>
+</div>
+<div><br>
+</div>
+
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+<div class="bdsharebuttonbox" style="float: right;">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+<!--192.168.100.35-->
+<ul class="article_next_prev">
+            <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/zl_jay/article/details/10115137';">上一篇</span><a href="/zl_jay/article/details/10115137" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">SQL SERVER 因为数据库正在使用，无法获得对数据库的独占访问权!</a></li>
+            <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/zl_jay/article/details/12912095';">下一篇</span><a href="/zl_jay/article/details/12912095" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">在打包项目时出现java:1: illegal character: \65279问题的解决方法</a></li>
+</ul>
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+</div>
+      <dl class="blog-associat-tag">
+        <dt>主题推荐</dt>
+        <dd>
+                <a href="http://www.csdn.net/tag/ckeditor" target="_blank" class="blog-tage-red" >ckeditor</a> 
+                <a href="http://www.csdn.net/tag/ckfinder" target="_blank" class="blog-tage-red" >ckfinder</a> 
+                <a href="http://www.csdn.net/tag/web服务器" target="_blank" class="blog-tage-red" >web服务器</a> 
+                <a href="http://www.csdn.net/tag/浏览器" target="_blank" class="blog-tage-red" >浏览器</a> 
+                <a href="http://www.csdn.net/tag/contextmenu" target="_blank" class="blog-tage-red" >contextmenu</a> 
+        </dd>
+    </dl> 
+
+
+<dl class="blog-ass-articl tracking-ad"  data-mod="popu_36" id="res-relatived"> 
+     <dt><span>猜你在找</span></dt>    
+</dl>
+
+<script type="text/javascript">
+    var searchtitletags = 'CKEditor和CKFinder及CKEditor配置属性说明' + ',' + 'ckeditor,ckfinder,web服务器,浏览器,contextmenu';
+    searchService({
+        index: 'blog',
+        query: searchtitletags,
+        from: 10,
+        size: 10,
+        appendTo: '#res-relatived',
+        url: 'recommend',
+        his: 2,
+        client: "blog_cf_enhance",
+        tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+    });
+
+ </script>   
+
+
+    <div id="ad_cen">
+   
+          <script type="text/javascript">
+              new Ad(4, 'ad_cen');
+          </script>
+    </div>
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '12586735';
+    var commentscount = 0;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+    <script type="text/javascript">
+    new Ad(5, 'ad_bot');
+    </script>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);
+        
+        /*
+        if($("#comment_content").length>0)
+        {
+            $("#quick-reply").show();
+
+            $("#quick-reply").click(function(){
+                setEditorFocus();
+            });
+        }       
+     
+        var d_top = $('#d-top-a');
+
+        document.onscroll = function ()
+        {
+            var scrTop = (document.body.scrollTop || document.documentElement.scrollTop);
+            if (scrTop > 500)
+            {
+                d_top.show();
+            } else
+            {
+                d_top.hide();
+            }
+        }
+        $('#d-top-a').click(function ()
+        {
+            scrollTo(0, 0);
+            this.blur();
+            return false;
+        });
+        */
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+<div class="tag_list">
+    <h5>
+        <a href="http://www.csdn.net/tag/" target="_blank">核心技术类目</a></h5>
+    <div class="classify">
+<a title="全部主题" href="http://www.csdn.net/tag" target="_blank" onclick="LogClickCount(this,336);">全部主题</a>
+<a title="Hadoop" href="http://g.csdn.net/5272865" target="_blank" onclick="LogClickCount(this,336);">Hadoop</a>
+<a title="AWS" href="http://g.csdn.net/5272866" target="_blank" onclick="LogClickCount(this,336);">AWS</a>
+<a title="移动游戏" href="http://g.csdn.net/5272870" target="_blank" onclick="LogClickCount(this,336);">移动游戏</a>
+<a title="Java" href="http://g.csdn.net/5272871" target="_blank" onclick="LogClickCount(this,336);">Java</a>
+<a title="Android" href="http://g.csdn.net/5272872" target="_blank" onclick="LogClickCount(this,336);">Android</a>
+<a title="iOS" href="http://g.csdn.net/5272873" target="_blank" onclick="LogClickCount(this,336);">iOS</a>
+<a title="Swift" href="http://g.csdn.net/5272868" target="_blank" onclick="LogClickCount(this,336);">Swift</a>
+<a title="智能硬件" href="http://g.csdn.net/5272869" target="_blank" onclick="LogClickCount(this,336);">智能硬件</a>
+<a title="Docker" href="http://g.csdn.net/5272867" target="_blank" onclick="LogClickCount(this,336);">Docker</a>
+<a title="OpenStack" href="http://g.csdn.net/5272925" target="_blank" onclick="LogClickCount(this,336);">OpenStack</a>
+<a title="VPN" href="http://www.csdn.net/tag/vpn" target="_blank" onclick="LogClickCount(this,336);">VPN</a>
+<a title="Spark" href="http://g.csdn.net/5272924" target="_blank" onclick="LogClickCount(this,336);">Spark</a>
+<a title="ERP" href="http://www.csdn.net/tag/erp" target="_blank" onclick="LogClickCount(this,336);">ERP</a>
+<a title="IE10" href="http://www.csdn.net/tag/ie10" target="_blank" onclick="LogClickCount(this,336);">IE10</a>
+<a title="Eclipse" href="http://www.csdn.net/tag/eclipse" target="_blank" onclick="LogClickCount(this,336);">Eclipse</a>
+<a title="CRM" href="http://www.csdn.net/tag/crm" target="_blank" onclick="LogClickCount(this,336);">CRM</a>
+<a title="JavaScript" href="http://www.csdn.net/tag/javascript" target="_blank" onclick="LogClickCount(this,336);">JavaScript</a>
+<a title="数据库" href="http://www.csdn.net/tag/数据库" target="_blank" onclick="LogClickCount(this,336);">数据库</a>
+<a title="Ubuntu" href="http://www.csdn.net/tag/ubuntu" target="_blank" onclick="LogClickCount(this,336);">Ubuntu</a>
+<a title="NFC" href="http://www.csdn.net/tag/nfc" target="_blank" onclick="LogClickCount(this,336);">NFC</a>
+<a title="WAP" href="http://www.csdn.net/tag/wap" target="_blank" onclick="LogClickCount(this,336);">WAP</a>
+<a title="jQuery" href="http://www.csdn.net/tag/jquery" target="_blank" onclick="LogClickCount(this,336);">jQuery</a>
+<a title="BI" href="http://www.csdn.net/tag/bi" target="_blank" onclick="LogClickCount(this,336);">BI</a>
+<a title="HTML5" href="http://www.csdn.net/tag/html5" target="_blank" onclick="LogClickCount(this,336);">HTML5</a>
+<a title="Spring" href="http://www.csdn.net/tag/spring" target="_blank" onclick="LogClickCount(this,336);">Spring</a>
+<a title="Apache" href="http://www.csdn.net/tag/apache" target="_blank" onclick="LogClickCount(this,336);">Apache</a>
+<a title=".NET" href="http://www.csdn.net/tag/.net" target="_blank" onclick="LogClickCount(this,336);">.NET</a>
+<a title="API" href="http://www.csdn.net/tag/api" target="_blank" onclick="LogClickCount(this,336);">API</a>
+<a title="HTML" href="http://www.csdn.net/tag/html" target="_blank" onclick="LogClickCount(this,336);">HTML</a>
+<a title="SDK" href="http://www.csdn.net/tag/sdk" target="_blank" onclick="LogClickCount(this,336);">SDK</a>
+<a title="IIS" href="http://www.csdn.net/tag/iis" target="_blank" onclick="LogClickCount(this,336);">IIS</a>
+<a title="Fedora" href="http://www.csdn.net/tag/fedora" target="_blank" onclick="LogClickCount(this,336);">Fedora</a>
+<a title="XML" href="http://www.csdn.net/tag/xml" target="_blank" onclick="LogClickCount(this,336);">XML</a>
+<a title="LBS" href="http://www.csdn.net/tag/lbs" target="_blank" onclick="LogClickCount(this,336);">LBS</a>
+<a title="Unity" href="http://www.csdn.net/tag/unity" target="_blank" onclick="LogClickCount(this,336);">Unity</a>
+<a title="Splashtop" href="http://www.csdn.net/tag/splashtop" target="_blank" onclick="LogClickCount(this,336);">Splashtop</a>
+<a title="UML" href="http://www.csdn.net/tag/uml" target="_blank" onclick="LogClickCount(this,336);">UML</a>
+<a title="components" href="http://www.csdn.net/tag/components" target="_blank" onclick="LogClickCount(this,336);">components</a>
+<a title="Windows Mobile" href="http://www.csdn.net/tag/windowsmobile" target="_blank" onclick="LogClickCount(this,336);">Windows Mobile</a>
+<a title="Rails" href="http://www.csdn.net/tag/rails" target="_blank" onclick="LogClickCount(this,336);">Rails</a>
+<a title="QEMU" href="http://www.csdn.net/tag/qemu" target="_blank" onclick="LogClickCount(this,336);">QEMU</a>
+<a title="KDE" href="http://www.csdn.net/tag/kde" target="_blank" onclick="LogClickCount(this,336);">KDE</a>
+<a title="Cassandra" href="http://www.csdn.net/tag/cassandra" target="_blank" onclick="LogClickCount(this,336);">Cassandra</a>
+<a title="CloudStack" href="http://www.csdn.net/tag/cloudstack" target="_blank" onclick="LogClickCount(this,336);">CloudStack</a>
+<a title="FTC" href="http://www.csdn.net/tag/ftc" target="_blank" onclick="LogClickCount(this,336);">FTC</a>
+<a title="coremail" href="http://www.csdn.net/tag/coremail" target="_blank" onclick="LogClickCount(this,336);">coremail</a>
+<a title="OPhone " href="http://www.csdn.net/tag/ophone " target="_blank" onclick="LogClickCount(this,336);">OPhone </a>
+<a title="CouchBase" href="http://www.csdn.net/tag/couchbase" target="_blank" onclick="LogClickCount(this,336);">CouchBase</a>
+<a title="云计算" href="http://www.csdn.net/tag/云计算" target="_blank" onclick="LogClickCount(this,336);">云计算</a>
+<a title="iOS6" href="http://www.csdn.net/tag/iOS6" target="_blank" onclick="LogClickCount(this,336);">iOS6</a>
+<a title="Rackspace " href="http://www.csdn.net/tag/rackspace " target="_blank" onclick="LogClickCount(this,336);">Rackspace </a>
+<a title="Web App" href="http://www.csdn.net/tag/webapp" target="_blank" onclick="LogClickCount(this,336);">Web App</a>
+<a title="SpringSide" href="http://www.csdn.net/tag/springside" target="_blank" onclick="LogClickCount(this,336);">SpringSide</a>
+<a title="Maemo" href="http://www.csdn.net/tag/maemo" target="_blank" onclick="LogClickCount(this,336);">Maemo</a>
+<a title="Compuware" href="http://www.csdn.net/tag/compuware" target="_blank" onclick="LogClickCount(this,336);">Compuware</a>
+<a title="大数据" href="http://www.csdn.net/tag/大数据" target="_blank" onclick="LogClickCount(this,336);">大数据</a>
+<a title="aptech" href="http://www.csdn.net/tag/aptech" target="_blank" onclick="LogClickCount(this,336);">aptech</a>
+<a title="Perl" href="http://www.csdn.net/tag/perl" target="_blank" onclick="LogClickCount(this,336);">Perl</a>
+<a title="Tornado" href="http://www.csdn.net/tag/tornado" target="_blank" onclick="LogClickCount(this,336);">Tornado</a>
+<a title="Ruby" href="http://www.csdn.net/tag/ruby" target="_blank" onclick="LogClickCount(this,336);">Ruby</a>
+<a title="Hibernate" href="http://www.csdn.net/hibernate" target="_blank" onclick="LogClickCount(this,336);">Hibernate</a>
+<a title="ThinkPHP" href="http://www.csdn.net/tag/thinkphp" target="_blank" onclick="LogClickCount(this,336);">ThinkPHP</a>
+<a title="HBase" href="http://www.csdn.net/tag/hbase" target="_blank" onclick="LogClickCount(this,336);">HBase</a>
+<a title="Pure" href="http://www.csdn.net/tag/pure" target="_blank" onclick="LogClickCount(this,336);">Pure</a>
+<a title="Solr" href="http://www.csdn.net/tag/solr" target="_blank" onclick="LogClickCount(this,336);">Solr</a>
+<a title="Angular" href="http://www.csdn.net/tag/angular" target="_blank" onclick="LogClickCount(this,336);">Angular</a>
+<a title="Cloud Foundry" href="http://www.csdn.net/tag/cloudfoundry" target="_blank" onclick="LogClickCount(this,336);">Cloud Foundry</a>
+<a title="Redis" href="http://www.csdn.net/tag/redis" target="_blank" onclick="LogClickCount(this,336);">Redis</a>
+<a title="Scala" href="http://www.csdn.net/tag/scala" target="_blank" onclick="LogClickCount(this,336);">Scala</a>
+<a title="Django" href="http://www.csdn.net/tag/django" target="_blank" onclick="LogClickCount(this,336);">Django</a>
+<a title="Bootstrap" href="http://www.csdn.net/tag/bootstrap" target="_blank" onclick="LogClickCount(this,336);">Bootstrap</a>
+    </div>
+</div>
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });
+        },200);  
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }    
+
+</script>
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+            <div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/zls_12" target="_blank">
+    <img src="http://avatar.csdn.net/9/D/F/1_zls_12.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/zls_12" class="user_name" target="_blank">zls_12</a></span>
+</div>
+<div class="interact">
+<a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_guanzhu'])"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=zls_12','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>9533次</span></li>
+    <li>积分：<span>286</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://csdnimg.cn/jifen/images/xunzhang/jianzhang/blog2.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：286 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>12篇</span></li>
+    <li>转载：<span>5篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>0条</span></li>
+</ul>
+</ul>
+</div>
+
+
+
+
+<div id="custom_column_27694137" class="panel">
+<ul class="panel_head"><span>☞ QQ联系我</span></ul>
+<ul class="panel_body">
+
+<div><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=245574893site=qq&amp;menu=yes" target="_blank"><img border="0" src="http://hi.csdn.net/attachment/201112/7/890299_1323222425UUsT.jpg" title="点击这里给我发消息"></a>
+</div>
+
+</ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script>
+<div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1447489" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java</a><span>(8)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1467563" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Spring</a><span>(3)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1469709" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1576205" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">sql server</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1678671" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">CKEditor</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1687073" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">开发模式</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/1751353" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">服务器</a><span>(2)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2108495" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">jsp</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2108497" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">servlet</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2108499" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">struts2</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2195163" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">通用类总结</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2200277" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Hadoop</a><span>(0)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2264473" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">js</a><span>(1)</span>
+            </li>
+             <li>
+                <a href="http://blog.csdn.net/zl_jay/article/category/2483095" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Web前端开发</a><span>(2)</span>
+            </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="http://blog.csdn.net/zl_jay/article/month/2014/08">2014年08月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2014/06">2014年06月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2014/05">2014年05月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2014/04">2014年04月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2014/03">2014年03月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2013/12">2013年12月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2013/11">2013年11月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2013/10">2013年10月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2013/08">2013年08月</a><span>(2)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2013/07">2013年07月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/zl_jay/article/month/2013/06">2013年06月</a><span>(3)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/zl_jay/article/details/12586735" title="CKEditor和CKFinder及CKEditor配置属性说明">CKEditor和CKFinder及CKEditor配置属性说明</a><span>(1921)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/16802953" title="Windows下nginx+tomcat的负载均衡">Windows下nginx+tomcat的负载均衡</a><span>(1282)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/9468371" title="java解析json格式的数据,其中json是List和Map格式">java解析json格式的数据,其中json是List和Map格式</a><span>(1187)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/10115137" title="SQL SERVER 因为数据库正在使用，无法获得对数据库的独占访问权!">SQL SERVER 因为数据库正在使用，无法获得对数据库的独占访问权!</a><span>(559)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/25808969" title="第一篇       对Javascript中原型的深入理解">第一篇       对Javascript中原型的深入理解</a><span>(454)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/9171295" title="Oracle11g 第二版的数据远程连接数据库的的方式与">Oracle11g 第二版的数据远程连接数据库的的方式与</a><span>(450)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/10006157" title="Tomcat配置双向的ssl方式(浏览器不出不信任的红叉叉情况)">Tomcat配置双向的ssl方式(浏览器不出不信任的红叉叉情况)</a><span>(422)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/12912095" title="在打包项目时出现java:1: illegal character: \65279问题的解决方法">在打包项目时出现java:1: illegal character: \65279问题的解决方法</a><span>(402)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/9160957" title="spring propertyplaceholderconfigurer的使用">spring propertyplaceholderconfigurer的使用</a><span>(358)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/17526801" title="java实现简单的单点登录">java实现简单的单点登录</a><span>(295)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/zl_jay/article/details/9061421" title="Eclipse远程调试教程">Eclipse远程调试教程</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/38534045" title="超酷的圆盘时钟表">超酷的圆盘时钟表</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/31832719" title="spring 官方下载地址！！">spring 官方下载地址！！</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/28268683" title="如何编程实现 2 + 2 = 5？">如何编程实现 2 + 2 = 5？</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/25808969" title="第一篇       对Javascript中原型的深入理解">第一篇       对Javascript中原型的深入理解</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/23759185" title="java 中大写数字与阿拉伯数之间的相互转换">java 中大写数字与阿拉伯数之间的相互转换</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/21157601" title="java.lang.IllegalStateException错误原因以及解决方法">java.lang.IllegalStateException错误原因以及解决方法</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/17526801" title="java实现简单的单点登录">java实现简单的单点登录</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/16802953" title="Windows下nginx+tomcat的负载均衡">Windows下nginx+tomcat的负载均衡</a><span>(0)</span>
+</li>
+<li>
+<a href="/zl_jay/article/details/12912095" title="在打包项目时出现java:1: illegal character: \65279问题的解决方法">在打包项目时出现java:1: illegal character: \65279问题的解决方法</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend"></ul>
+</div>
+<script type="text/javascript">
+ new Ad(12, 'ad_commend');
+</script>    </div>
+    <div class="clear">
+    </div>
+</div>
+
+            <div class="clear">
+            </div>
+        </div>
+        
+
+<script type="text/javascript" src="http://csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1456464"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript" src="http://zz.csdn.net/js/count.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a>"
+                    + "<a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+    });
+</script>
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://static.csdn.net/public/common/toolbar/js/toolbar.js"></script>
+     <!--new top-->
+   
+    <link href="http://csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+
+</body>
+</html>
