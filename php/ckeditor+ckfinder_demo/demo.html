@@ -1,0 +1,54 @@
+
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+    <script src="jquery-1.8.1.js" type="text/javascript"></script>
+    <!-- 加载 ckfinder ckeditor 核心文件: ckeditor.js ckfinder.js -->
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="ckeditor/ckfinder/ckfinder.js"></script>
+    <!----> 
+<body>
+	<form action="" method="post" name="file">
+	<h1>Demo for Ckeditor&&Ckfinder</h1>
+	<h6>Author :yang  Date:2014/12/06</h6>
+	text:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="content1" class="content1" name="content1"/><br/><br/><br/><br/>
+	textarea:<textarea class="content2" id="content2" name="content2" ></textarea><br/><br/><br/><br/>
+	 <input type="button" id="b1" value="替换input type=text "/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="b2" value="替换textarer"/>
+	</form>
+</body>
+</html>
+<script   type="text/javascript"> 
+	$(function(){
+		//前台添加js 代码调用 ckeditor	
+		$("#b1").click(function(){
+			CKEDITOR.replace('content1',{filebrowserBrowseUrl : './ckeditor/ckfinderckfinder.html',  
+            filebrowserImageBrowseUrl : './ckeditor/ckfinder/ckfinder.html?Type=Images',  
+            filebrowserFlashBrowseUrl : './ckeditor/ckfinder/ckfinder.html?Type=Flash',  
+            filebrowserUploadUrl : './ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',   
+            filebrowserImageUploadUrl : './ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',  
+            filebrowserFlashUploadUrl : './ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'});		
+		});
+
+		/**
+		 * 还可以在ckeditor/config.js配置文件中 js添加代码
+		 *	然后在前台html页面 script标签中通过	
+		 *	
+		 *		window.onload = function(){
+		 *			editor = CKEDITOR.replace('文本域id'); 
+		 *		} 
+		 *	 调用   两种方式都可以
+		 */
+		 
+		 
+		
+		$("#b2").click(function(){
+			CKEDITOR.replace('content2',{filebrowserBrowseUrl : '/ckeditor/ckfinder/ckfinder.html',  
+            filebrowserImageBrowseUrl : '/ckeditor/ckfinder/ckfinder.html?Type=Images',  
+            filebrowserFlashBrowseUrl : '/ckeditor/ckfinder/ckfinder.html?Type=Flash',  
+            filebrowserUploadUrl : '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',   
+            filebrowserImageUploadUrl : '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',  
+            filebrowserFlashUploadUrl : '/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'}); 			
+		});
+	})
+</script>  
+
