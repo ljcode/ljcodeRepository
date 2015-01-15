@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>统计图表demo</title>
+<script type="text/javascript" src="http://www.ljlj.cc/includes/libraries/javascript/jquery.js?v=1.4.2" charset="utf-8"></script>
+<style type="text/css">
+*{
+	margin:0;padding:0;	
+	}
+li{
+	list-style-type:none;	
+	}
+a,img,input{
+	outline:none;border:none;	
+	}
+.door-statistics{
+	color:#1b1a1a;width:700px;margin:0 auto;font-family:"微软雅黑", "宋体", Arial;font-size:12px;	
+	}
+.door-statistics h1{
+	color:#333333;font-size:22px;margin:18px 0 32px 0;text-align:center;	
+	}
+.door-statistics-content{
+		
+	}
+.statistics-content-title{
+	background:#f9f9f9;border:#DDDDDD solid 1px;height:31px;line-height:31px;padding:0 34px 0 10px; position:relative;
+	}
+.statistics-content-title img{
+	margin-right:10px;vertical-align:middle;	
+	}
+.statistics-content-title span{
+	position:absolute;right:34px;	
+	}
+.statistics-content-title em{
+	margin:0 8px;color:#A15B02;font-weight:bold;font-style:normal;	
+	}
+.statistics-content{
+	border:#DDDDDD solid 1px;border-top:none;padding:5px 26px 0 26px; 	
+	}
+.statistics-content li{
+	position:relative;
+	}
+.statistics-content li{
+	heihgt:30px;line-height:30px;border-bottom:#DDD dashed 1px;	
+	}
+.statistics-content-text{
+	display:inline-block;width:155px;text-align:right;	
+	}
+.statistics-content-progress{
+	display:inline-block;width:328px;height:8px;border:#DDD solid 1px;margin:0 5px 0 9px;	
+	}
+.statistics-content-progress span{
+	display:inline-block;height:8px;border:#E6AE66 solid 1px;background:#E6AE66;margin:-1px 0 0 -1px;	
+	}
+.statistics-content-ticket{
+	position:absolute;right:11px;	
+	}
+.statistics-content-ticket small{
+	margin-left:8px;color:#777;	
+	}
+.statistics-content .statistics-last-li{
+	border:none;	
+	}
+
+</style>
+</head>
+<body>
+<div class="door-statistics">
+	<h1>调查项目：蓝景丽家知识大讲堂·主题调查</h1>	
+    <div class="door-statistics-content">
+    	<div class="statistics-content-title">
+        	关于下期主题，你最想了解什么？（单选）
+            <span>共<em id="totalcount"><?php echo $totalCount;?></em>票</span>
+        </div>
+        <div class="statistics-content">
+        	<ul id="statistics">
+                <?php echo $statisHtml;?>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
