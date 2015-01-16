@@ -15,38 +15,29 @@ $arr['credit_2'][] = '2015/01/22';<br/>
 $arr['credit_3'][] = '2015/01/20';<br/>
 $arr['credit_3'][] = '2015/02/18';<br/>
 
-$arr['credit_4'][] = '2015/01/05';<br/>
-$arr['credit_4'][] = '2015/03/06';<br/>
 
 /* 打印结果如下<br/>
 array(4) {<br/>
   ["credit_1"]=><br/>
   array(2) {<br/>
     [0]=><br/>
-    string(10) "2015/01/01"<br/>
+    string(10) "2015/01/15"<br/>
     [1]=><br/>
-    string(10) "2015/02/16"<br/>
+    string(10) "2015/02/15"<br/>
   }<br/>
   ["credit_2"]=><br/>
   array(2) {<br/>
     [0]=> <br/>
-    string(10) "2014/12/01"<br/>
+    string(10) "2015/01/02"<br/>
     [1]=><br/>
-    string(9) "2015/01/8"<br/>
+    string(9) "2015/01/22"<br/>
   }<br/>
   ["credit_3"]=><br/>
   array(2) {<br/>
     [0]=><br/>
-    string(10) "2015/01/06"<br/>
+    string(10) "2015/01/20"<br/>
     [1]=><br/>
     string(10) "2015/02/18"<br/>
-  }<br/>
-  ["credit_4"]=><br/>
-  array(2) {<br/>
-    [0]=><br/>
-    string(10) "2015/01/05"<br/>
-    [1]=><br/>
-    string(10) "2015/03/06"<br/>
   }<br/>
 }<br/>
 */
