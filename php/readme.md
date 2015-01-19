@@ -1,8 +1,8 @@
-ckeditor_demo       -- 在线编辑器的demo <br />
-excel_demo          -- php操作excel-demo（导出excel和读取excel）<br />
-email_demo          -- php发送email-demo<br />
-jiathis_demo        -- js的jiathis分享插件demo <br/>
-qrcode_demo         -- php二维码生成插件demo<br/>
-common_function.php -- 公共函数汇总 <br />
-pic_switch_demo     -- js的图片轮转demo<br />
-getDay_class_demo     -- 获取 若干组数据的起始结束日期 的交集部分demo<br />
+ckeditor_demo               -- 在线编辑器的demo <br />
+excel_demo                  -- php操作excel-demo（导出excel和读取excel）<br />
+email_demo                  -- php发送email-demo<br />
+jiathis_demo                -- js的jiathis分享插件demo <br/>
+qrcode_demo                 -- php二维码生成插件demo<br/>
+common_function.php         -- 公共函数汇总 <br />
+pic_switch_demo             -- js的图片轮转demo<br />
+任务系列之---选择日期中间值     -- 任务系列之---选择日期中间值demo<br />
