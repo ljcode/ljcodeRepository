@@ -10,11 +10,11 @@
  */
 class getDay
 {
-   /**
+    /**
     * 获取日期中间值
     * 
     * @param  $array Array    入参为分组后二维数组格式的具体日期 如: 
-    *         array('date1'=>array('start_date'=>'2000-01-01','end_date;=>'2000-01-31'),'date2'=>array(...))
+    *         array('date1'=>array('start_date'=>'2000-01-01','end_date'=>'2000-01-31'),'date2'=>array(...))
     * 
     * @return String or Array 返回具体时期提示文字 或者 返回具体日期数组（可选）
     *  
