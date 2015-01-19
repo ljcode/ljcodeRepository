@@ -5,4 +5,4 @@ jiathis_demo                -- js的jiathis分享插件demo <br/>
 qrcode_demo                 -- php二维码生成插件demo<br/>
 common_function.php         -- 公共函数汇总 <br />
 pic_switch_demo             -- js的图片轮转demo<br />
-任务系列之-选择日期中间值       -- 任务系列之---选择日期中间值demo<br />
+任务系列之选择日期中间值demo    -- 任务系列之选择日期中间值<br />
