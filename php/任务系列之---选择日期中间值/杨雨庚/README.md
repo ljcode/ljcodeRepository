@@ -14,7 +14,7 @@ $arr['credit_2'][] = '2015/01/22';<br/>
 
 $arr['credit_3'][] = '2015/01/20';<br/>
 $arr['credit_3'][] = '2015/02/18';<br/>
-
+-------------------------------------------------------------------------
 
 /* 打印结果如下<br/>
 array(4) {<br/>
@@ -22,26 +22,26 @@ array(4) {<br/>
 &nbsp;&nbsp;array(2) {<br/>
 &nbsp;&nbsp;&nbsp;[0]=><br/>
 &nbsp;&nbsp;&nbsp;string(10) "2015/01/15"<br/>
-&nbsp;&nbsp;[1]=><br/>
+&nbsp;&nbsp;&nbsp;[1]=><br/>
 &nbsp;&nbsp;&nbsp;string(10) "2015/02/15"<br/>
 &nbsp;&nbsp;}<br/>
 &nbsp;&nbsp;["credit_2"]=><br/>
 &nbsp;&nbsp;array(2) {<br/>
 &nbsp;&nbsp;&nbsp;[0]=> <br/>
 &nbsp;&nbsp;&nbsp;string(10) "2015/01/02"<br/>
-&nbsp;&nbsp;[1]=><br/>
+&nbsp;&nbsp;&nbsp;[1]=><br/>
 &nbsp;&nbsp;&nbsp;string(9) "2015/01/22"<br/>
 &nbsp;&nbsp;}<br/>
 &nbsp;&nbsp;["credit_3"]=><br/>
 &nbsp;&nbsp;&nbsp;array(2) {<br/>
 &nbsp;&nbsp;&nbsp;[0]=><br/>
 &nbsp;&nbsp;&nbsp;string(10) "2015/01/20"<br/>
-&nbsp;&nbsp;[1]=><br/>
+&nbsp;&nbsp;&nbsp;[1]=><br/>
 &nbsp;&nbsp;&nbsp;string(10) "2015/02/18"<br/>
 &nbsp;&nbsp;}<br/>
 }<br/>
 */
-
+-------------------------------------------------------------------------
 <b>调用 getDay 类</b>
 
 $l = new getDay;<br/>
