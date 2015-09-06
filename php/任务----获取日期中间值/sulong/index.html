@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>银行卡还款日期选择</title>
+<script type="text/javascript" src="./My97DatePicker/WdatePicker.js"></script>
+</head>
+<body> 
+<span><input type="button" value="插入新的选择框" onclick="insert()" ></span>
+<form action="./back_credit_card.php" method="post">
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tbody id='show'>
+		<tr>
+			<td>账单日1：</td><td><input type="text" name='dayStr[]' onfocus="WdatePicker({isShowWeek:true})" value='' /></td>
+			<td>还款日1：</td><td><input type="text" name='dayEnd[]' onfocus="WdatePicker({isShowWeek:true})" value='' /></td>
+		</tr>
+		<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr>
+			<td>账单日2：</td><td><input type="text" name='dayStr[]' onfocus="WdatePicker({isShowWeek:true})" value='' /></td>
+			<td>还款日2：</td><td><input type="text" name='dayEnd[]' onfocus="WdatePicker({isShowWeek:true})" value='' /></td>
+		</tr>
+	</tbody>
+	</table>
+<br/>
+<input type="submit" value="每月最佳还款日期获取" />
+</form>
+<script type="text/javascript" >
+//定义一个计数用全局变量
+var int = 3;
+//向页面增加一组新的日期
+function insert()
+{
+	var html = "<tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>账单日"+int+"：</td><td><input type='text' name='dayStr[]' onfocus='WdatePicker({isShowWeek:true})' value='' /></td><td>还款日"+int+"：</td><td><input type='text' name='dayEnd[]' onfocus='WdatePicker({isShowWeek:true})' value='' /></td></tr>";
+	var show = document.getElementById("show");
+	document.getElementById("show").innerHTML = document.getElementById("show").innerHTML+html;
+	int ++
+}
+</script>
+</body>
+</html>
