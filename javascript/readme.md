@@ -7,3 +7,4 @@
 * no_limit_category 无限级分类
 * three_level_select 三级联动
 * popup_layer 弹出层
+* ajax_cross_domain ajax跨域
