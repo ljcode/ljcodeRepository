@@ -6,3 +6,4 @@
 * count_dow  ----  倒计时效果
 * no_limit_category 无限级分类
 * three_level_select 三级联动
+* popup_layer 弹出层
