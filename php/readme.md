@@ -11,4 +11,4 @@
 * statistics_demo     -- php统计柱图生demo<br/>
 * waterfall                   -- 瀑布流demo
 * image_captcha       -- 图片验证码
-
+* php.ini -- php的配置文件
