@@ -1,4 +1,4 @@
-
+### 说明
 * ckeditor_demo               -- 在线编辑器的demo <br />
 * excel_demo                  -- php操作excel-demo（导出excel和读取excel）<br />
 * email_demo                  -- php发送email-demo<br />
@@ -10,4 +10,5 @@
 * ckeditor+ckfinder_demo  --ckeditor在线编辑器加入ckfinder图片上传demo  
 * statistics_demo     -- php统计柱图生demo<br/>
 * waterfall                   -- 瀑布流demo
+* image_captcha       -- 图片验证码
 
