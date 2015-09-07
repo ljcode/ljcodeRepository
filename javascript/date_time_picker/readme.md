@@ -2,9 +2,7 @@
 
 ####注意事项：
 1.My97DatePicker目录是一个整体,不可破坏里面的目录结构,也不可对里面的文件改名,可以改目录名
-
 2.My97DatePicker.htm是必须文件,不可删除
-
 3.各目录及文件的用途:
 
 4.WdatePicker.js 配置文件,在调用的地方仅需使用该文件,可多个共存,以xx_WdatePicker.js方式命名
