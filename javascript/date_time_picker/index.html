@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>时间控件demo</title>
+    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<form action="" method="post">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="46" height="40">&nbsp;</td>
+                    <td onclik="test()">对账开始日期：</td>
+                    <td colspan="4">
+                        <input class="Wdate" type="text"  id="starttime" name="starttime" value="2014-12-12"/>
+                        &nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td width="46" height="40">&nbsp;</td>
+                    <td>对账结束日期：</td>
+                    <td colspan="4">
+                        <input  class="Wdate" type="text" name="endtime" id="endtime"/>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td width="46" height="40">&nbsp;</td>
+                    <td>交款时间：</td>
+                    <td colspan="4">
+<input id="time" name="time" class="Wdate" type="text"  />
+                    </td>
+                </tr>
+    </table>
+</form>
+</body>
+<script type="text/javascript">
+//获取当前日期
+var d = new Date();
+var now = d.getFullYear() + "-" + ((d.getMonth()+1)<10 ? "0" : "") + (d.getMonth()+1) + "-" + (d.getDate()<10 ? "0" : "") + d.getDate();
+/*
+*单击对账开始文本框弹出时间控件
+*起始时间:自定(可从文本框中获取)
+*终止时间:当天
+*/
+$("#starttime").click(function(){
+    var start = $('#starttime').val();
+    var obj = {
+        el:'starttime',      //所要显示日期的input框的id值
+        isShowClear:false,   //是否显示清空按钮
+        readOnly:true,       //输入框只读
+        minDate:start,       //日期控件的最小日期
+        maxDate:now,         //日期控件的最大日期
+        dateFmt: 'yyyy-MM-dd'  //默认设置,日期控件的显示格式,如2013-04-04
+        };
+    WdatePicker(obj);          //调用控件
+});
+/*
+*单击对账结束文本框弹出时间控件
+*起始时间:对账开始时间
+*终止时间:当天
+*/
+$("#endtime").click(function(){
+    var start = $('#starttime').val();
+    var obj = {
+        el:'endtime',            //所要显示日期的input框的id值
+        isShowClear:false,       //是否显示清空按钮
+        readOnly:true,          //输入框只读
+        minDate:start,           //日期控件的最小日期
+        maxDate:now,             //日期控件的最大日期
+        dateFmt: 'yyyy-MM-dd HH:mm:ss'  //日期控件的显示格式,如: yyyy-MM-dd HH:mm:ss 对应 2015-08-26 14:20:08 ; yyyy-MM-dd(默认设置) 2014-02-03
+        };
+    WdatePicker(obj);            //调用控件
+});
+/*
+*单击测量文本框弹出控件
+*起始时间:以对账结束时间为准
+*终止时间:对账结束时间30天后
+*/
+$("#time").click(function(){
+    var start = $('#endtime').val();
+    var obj = {
+        el:'time',            //所要显示日期的input框的id值
+        isShowClear:true,       //是否显示清空按钮
+        readOnly:true,          //输入框只读
+        minDate:start,           //日期控件的最小日期
+        //获取id为endtime的input框的值,在其上天数加30
+        maxDate:'#F{$dp.$D(\'endtime\',{d:30});}',           //日期控件的最大日期,注意:endtime为input框的id值;{d:30}为天数增加30 {y:1}为年限加1
+        dateFmt: 'yyyy-MM-dd'  //日期控件的显示格式,如: yyyy-MM-dd HH:mm:ss 对应 2015-08-26 14:20:08 ; yyyy-MM-dd(默认设置) 2014-02-03
+        };
+    WdatePicker(obj);            //调用控件
+});
+</script>
+</html>
+
+
+
