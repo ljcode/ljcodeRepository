@@ -9,5 +9,5 @@
 6.calendar.js 日期库主文件,无需引入.
 7.My97DatePicker.htm 临时页面文件,不可删除.
 8.目录lang 存放语言文件,你可以根据需要清理或添加语言文件.
-9.目录skin 存放皮肤的相关文件,你可以根据需要清理或添加皮肤文件包.
+9.目录skin 存放皮肤的相关文件,你可以根据需要清理或添加皮肤文件包。
 10.当WdatePicker.js里的属性:$wdate=true时,在input里加上class="Wdate"就会在选择框右边出现日期图标,如果您不喜欢这个样式,可以把class="Wdate"去掉,另外也可以通过修改skin目录下的WdatePicker.css文件来修改样式.
