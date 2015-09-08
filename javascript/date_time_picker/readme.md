@@ -4,7 +4,7 @@
 ####调用实例说明
 1.首先写入input框:
 ```php
-//对账开始时间input框,设置默认值
+//对账开始时间input框,设置默认值(默认值可以通过php程序传递过来)
 <input class="Wdate" type="text"  id="starttime" name="starttime" value="2014-12-12"/>
 ```
 2.触发js事件
@@ -27,6 +27,7 @@ $("#starttime").click(function(){
     WdatePicker(obj);          //调用控件
 });
 ```
+3.经过js事件后,input框的value值被改变
 ####注意事项：
 1.My97DatePicker目录是一个整体,不可破坏里面的目录结构,也不可对里面的文件改名,可以改目录名
 
