@@ -1,7 +1,11 @@
 ﻿### 时间控件说明
 ####调用方式
 将这些文件down下来放在同一目录下,然后执行index.html,并能看到效果.
-
+####调用实例说明
+1.首先写入input框:
+//对账开始时间input框,设置默认值
+<input class="Wdate" type="text"  id="starttime" name="starttime" value="2014-12-12"/>
+2.触发js事件
 ####注意事项：
 1.My97DatePicker目录是一个整体,不可破坏里面的目录结构,也不可对里面的文件改名,可以改目录名
 
