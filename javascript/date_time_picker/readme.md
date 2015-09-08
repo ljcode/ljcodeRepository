@@ -8,6 +8,25 @@
 <input class="Wdate" type="text"  id="starttime" name="starttime" value="2014-12-12"/>
 ```
 2.触发js事件
+```php
+/*
+*单击对账开始文本框弹出时间控件
+*起始时间:自定(可从文本框中获取)
+*终止时间:当天
+*/
+$("#starttime").click(function(){
+    var start = $('#starttime').val();
+    var obj = {
+        el:'starttime',      //所要显示日期的input框的id值
+        isShowClear:false,   //是否显示清空按钮
+        readOnly:true,       //输入框只读
+        minDate:start,       //日期控件的最小日期
+        maxDate:now,         //日期控件的最大日期
+        dateFmt: 'yyyy-MM-dd'  //默认设置,日期控件的显示格式,如2013-04-04
+        };
+    WdatePicker(obj);          //调用控件
+});
+```
 ####注意事项：
 1.My97DatePicker目录是一个整体,不可破坏里面的目录结构,也不可对里面的文件改名,可以改目录名
 
