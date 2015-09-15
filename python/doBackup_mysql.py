@@ -1,7 +1,7 @@
 #!/usr/sbin/python
 import os,sys,tarfile
 list=['db_lanmayi','db_mall','db_ucenter','db_ljmallim','db_tuan','db_webim']
-mysql='mysql -uroot -pMBBhE8qg04 -e '
+mysql='mysql -uroot -p密码 -e '
 path1='/data/work/mysql_backup/data/'
 ######找到相应的tar解压#######
 def localdata(c):
