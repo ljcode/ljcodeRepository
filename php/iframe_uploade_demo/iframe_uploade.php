@@ -4,13 +4,13 @@ if($_FILES['file']['error'] > 0){
    echo '!problem:';  
    switch($_FILES['file']['error'])  
    {  
-     case 1: echo '文件大小超过服务器限制';  
+     case 1: echo '文件大小超过php.ini中upload_max_filesize限制的值';  
              break;  
-     case 2: echo '文件太大！';  
+     case 2: echo '上传文件的大小超过了HTML表单中MAX_FILE_SIZE选项指定的值';  
              break;  
-     case 3: echo '文件只加载了一部分！';  
+     case 3: echo '文件只有部分被上传';  
              break;  
-     case 4: echo '文件加载失败！';  
+     case 4: echo '文件加载失败，没有文件被上传！';  
              break;  
    }  
 
@@ -46,21 +46,8 @@ else
    echo 'problem!';  
    exit;  
 } 
-//生成缩略图
-$src_image=ImageCreateFromJPEG($upfilePath);
-$srcW=ImageSX($src_image); //获得原图片宽
-$srcH=ImageSY($src_image); //获得原图片高
-$proportion = $srcW/$srcH;//宽和高的比例，
-$round = round($proportion,2);//宽和高的比例，保留两位小数
-$width = round($srcW/$round,0);//等比例缩放的图片的宽
-$height = round($srcH/$round,0);//等比例缩放的图片的高
-$dst_image=ImageCreateTrueColor($width,$height);//创建图像
-ImageCopyResized($dst_image,$src_image,0,0,0,0,$width,$height,$srcW,$srcH);
-$smallfile = '/img/img_group/' .'small'.$today.$type;//缩略图保存地址
-ImageJpeg($dst_image,$smallfile);
-//删除原图
-unlink($upfilePath);
-$path = 'http://img.ljlj.loc/img_group/'.'small'.$today . $type;//所略图输出路径
+//页面上图片输出路径
+$path = 'http://img.ljlj.loc/img_group/'.$today . $type;
 ?>
 <!-- 这是iframe的内连框架，主要目的是把上传完的图片路径输出，html接收到这个路径，获取到不跳页面立即显示 -->
 <!DOCTYPE html>
