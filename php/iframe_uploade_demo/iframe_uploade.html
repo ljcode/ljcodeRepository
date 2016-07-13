@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iframe 图片上传demo</title>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<form enctype ="multipart/form-data" id ='doUp' action= "iframe_uploade.php" method ="post" target= "upload_target">
+		上传图片：<input type="file" name='file' value="选择图片" class="select" onclick="start()"/>
+		<input type="button" onclick='doUploade()' value="上传" id='uplode' class="upload" disabled="disabled"/>
+	</form>
+	<iframe id= "frame" scrolling="no" frameborder="0"  name = "upload_target" style='display:none;margin:10px'></iframe >
+	<img style='width:400px;display:none;margin:10px' id = 'images' src="" alt=""/>	
+	<b class="info" style="display:none;"></b>
+	<u class="info" style="display:none;"></u>
+</body>
+</html>
+<script>
+	//点击上传文件时触发
+	function doUploade()
+	{
+		$('#doUp').submit();
+	}
+	//点击选择文件时，上传按钮启用
+	function start()
+	{
+		document.getElementById("uplode").disabled=false;
+	}
+	/**
+	* 图片上传
+	*/
+	$(document).ready( function (){
+    $( "#frame" ).load(function(){
+        var url = $("#frame" ).contents().find( "#pic").html();
+        if (url != null)
+        {
+        	//获取图片id
+        	var ui = document.getElementById("images");
+     		ui.style.display="";//删除隐藏属性
+            $( "#images" ).attr("src" ,url);
+            $('b.info').html('上传成功！').show();
+            $("u.info").hide();
+            document.getElementById("uplode").disabled=true;//上传按钮禁用
+        }else
+        {
+			$('u.info').html('上传失败，请查看图片是否符合规则！').show();
+			$('b.info').hide();
+        }
+    });
+	});
+</script>
