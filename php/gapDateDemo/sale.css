@@ -1,0 +1,22 @@
+i{font-style: normal;}
+/*列表页新建活动和修改活动*/
+body{font-family: "微软雅黑", "宋体", Arial;font-size:12px;margin:0;}
+.addActivity{padding:30px;}
+.activityContent>p{border-bottom: 1px dashed #6484d9;padding-bottom: 10px;font-size:16px;margin:0;}
+.activityContent .activity{padding-left:68px;}
+.activity p input,.activityDate dd input{width:197px;height:22px;}
+.activity p input{width:210px;}
+.activity span{color:#f00;padding-left:20px;}
+.activity p>i{padding-right:15px;}
+.activity p input{margin-bottom:16px;}
+.activityDate{width:465px;padding-bottom:6px;margin-left: 75px;
+margin-top: -30px;}
+.activityDate i{color:#30043f;}
+.activityStartDate{margin-bottom:18px;margin-top:10px;}
+.continuousDate{margin-bottom:10px;}
+.activityDate dt{font-size:14px;}
+.activityDate .jiange_p{padding:0 20px;border:1px solid #6484d9;padding:18px 0 18px 16px;margin:10px 20px 0 20px;background:#fff;}
+.activityDate .jiange_p span{padding-left:0;display:inline-block;width: 24%; color:#333;cursor:pointer;line-height:25px;}
+.jiange_p i{padding-left:12px;color:#ff0000;}
+.activityDate .jiange_p .jiange_span{padding-right:0;}
+.activity .activityBtn input{width:95px;height:25px;border:none;border:1px solid #6484d9;border-radius: 2px;}

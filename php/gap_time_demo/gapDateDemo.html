@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>间断日期选择demo</title>
+<link href="sale.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+	<div class="addActivity">
+		<i>间断日期：</i>
+		<div class="activityDate">
+			<dt class="continuousDate"><input type="radio" name="date" id="radio2" value= 2 />间断日期</dt>
+			<dd>
+			<i>活动日期选择：</i><input type="text" id="starttime"  readOnly="readOnly" disabled="disabled" onfocus="gapDate()"/>
+			</dd>
+			<dd class="jiange_p" style="display:none"></dd>
+		</div>
+	</div>
+		<div class="jiange_input" > </div>
+</body>
+</html>
+<script type="text/javascript">
+  	//获取当前时间
+	var d = new Date();
+	var now = d.getFullYear() + "-" + ((d.getMonth()+1)<10 ? "0" : "") + (d.getMonth()+1) + "-" + (d.getDate()<10 ? "0" : "") + (d.getDate());
+	
+	/** 
+	* 间断日期时间
+	* @param [time] end 结束时间
+	*/
+	function gapDate()
+	{
+	    var o = {
+	        el:'starttime',
+	        isShowClear:false,
+	        //readOnly:true,
+	        minDate:now,
+	        //选中日期调用方法gapShow
+	        onpicked:function()
+	        {
+	            gapShow();
+	        }
+	    };
+	    WdatePicker(o);
+	}
+	/**
+	* 选中间断日期显示
+	* @param [time] starttime 间断日期
+	*
+	*/
+	function gapShow()
+	{
+		var gapTime = $('#starttime').val();//选中的间断日期
+		var length = $(".jiange_p").children().length;//选中的间隔日期总数量
+		gapTimeNumber = gapTime.replace(/-/g,'');
+		var key = -1;
+		$('.jiange_p').show();//显示间隔日期
+		//当前选中的日期和input框中已经选好的最小日期比较
+		for(var i=0;i<length;i++)
+		{	
+			var time = $(".jiange_p").children().eq(i).text();
+			time = time.substr(0,10);
+			time = time.replace(/-/g,'');
+			if(gapTimeNumber > time) key=i;//选中日期<input框中已经选好的最小日期，key=-1
+			if(gapTimeNumber == time) return false;
+		}
+		$(".jiange_input").append("<input type='checkbox' style='display:none' checked='checked' name='gapTime[]' value="+gapTime+" id='"+gapTime+"' />");
+		//间隔日期总数量为0或者当前选中的日期小于最小日期,向jiange_p开头插入日期
+		if(length == 0 || key == -1) $(".jiange_p").prepend("<span>"+gapTime+"<i onclick='destory(this)'>X</i></span>");
+		else $(".jiange_p").children().eq(key).after("<span>"+gapTime+"<i onclick='destory(this)'>X</i></span>");
+	}
+	/**
+	* 删除间断日期
+	*/
+	function destory(ele)
+	{
+		if(confirm('确定删除该日期吗?'))
+		{
+			var text = $(ele).parent().text();
+			text = text.substr(0,10);
+			$('#'+text).remove();
+			$(ele).parent().remove();
+		}
+	}
+	//点击间断日期连续开始和结束的input清空，连续提示信息隐藏
+	$('#radio2').click(function(){
+		$('#starttime').removeAttr('disabled');
+	})
+
+</script>
