@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="./js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" href="./kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="./kindeditor/kindeditor-all.js"></script>
+<script charset="utf-8" src="./kindeditor/lang/zh-CN.js"></script>
+<link rel="stylesheet" href="./kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="./kindeditor/plugins/code/prettify.js"></script>
+<link rel="stylesheet" href="./css/article.css" />
+<style type="text/css">
+body{
+	background: #E7F0F0;
+}
+.right-main{
+	margin-top:15px; 
+	float: right;
+	width: 79%;
+	clear: both;
+}
+.right-main div{
+	margin: 5px 0;
+}
+.right-main .title-style input{
+	margin:3px; 
+	padding: 5px 15px;
+	font-size: 15px;
+	width: 240px;
+	border-radius: 5px;
+	background: #fff;
+	color: #535d92;
+	height: 25px;
+	line-height: 25px;
+	border: none;
+	outline:none;
+}
+
+.do-action
+{
+	display: block;
+	float: right;
+	margin-right: 60px;
+	width: 100px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	border-color: #4FC7BD;
+	background: #4FC7BD;
+	border-radius: 10px;
+	padding: 5px 10px;
+	color: #fff;
+}
+.do-action:hover
+{
+	border-color: #4FC7BD;
+	background: #4FC7BD;
+	cursor:pointer;
+}
+</style>
+<script type="text/javascript">
+KindEditor.ready(function(K)
+{
+		K.each({
+			'plug-align' : {
+				name : '对齐方式',
+				method : {
+					'justifyleft' : '左对齐',
+					'justifycenter' : '居中对齐',
+					'justifyright' : '右对齐'
+				}
+			},
+			'plug-order' : {
+				name : '编号',
+				method : {
+					'insertorderedlist' : '数字编号',
+					'insertunorderedlist' : '项目编号'
+				}
+			},
+			'plug-indent' : {
+				name : '缩进',
+				method : {
+					'indent' : '向右缩进',
+					'outdent' : '向左缩进'
+				}
+			}
+		},function( pluginName, pluginData ){
+			var lang = {};
+			lang[pluginName] = pluginData.name;
+			KindEditor.lang( lang );
+			KindEditor.plugin( pluginName, function(K) {
+				var self = this;
+				self.clickToolbar( pluginName, function() {
+					var menu = self.createMenu({
+							name : pluginName,
+							width : pluginData.width || 100
+						});
+					K.each( pluginData.method, function( i, v ){
+						menu.addItem({
+							title : v,
+							checked : false,
+							iconClass : pluginName+'-'+i,
+							click : function() {
+								self.exec(i).hideMenu();
+							}
+						});
+					})
+				});
+			});
+		});
+	var editor = K.create('textarea[name="article_content]', {
+		themeType : 'qq',
+			items : [
+				'bold','italic','underline','fontname','fontsize','forecolor','hilitecolor','image','plug-align','plug-order','plug-indent','link','baidumap', 
+			],
+		cssPath : './/kindeditor/plugins/code/prettify.css',
+		uploadJson : './/kindeditor/php/upload_json.php',
+		fileManagerJson : './/kindeditor/php/file_manager_json.php',
+		allowFileManager : true
+
+	});
+	//提交事件
+	K('.do-action').click(function(e)
+	{
+		var diaryTitle = $('input[name=article_title]').val();
+		if (!diaryTitle){alert('标题不能为空');return false;}
+		var diaryContent= editor.html();
+		if (!diaryContent){alert('内容不能为空');return false;}
+		editor.sync();
+		K('form[name=post_info]')[0].submit();
+	});
+});
+</script>
+<title>kindeditor在qq风格上做了修改</title>
+</head>
+<body>
+<div class='main-code'>
+	<div class="left-nav">
+		<div class="left-summary">
+			<h3>Kindeditor</h3>
+			<hr />
+			<p><a href="http://kindeditor.net/docs/usage.html" target="_blank" >用法解释</a></p>
+			<p><a href="http://kindeditor.net" target="_blank" >官网</a></p>
+		</div>
+	</div>
+	<div class="right-main">
+
+		<div>
+			<span class='do-action'>发布文章</span>
+		</div>
+		<div>
+			<span>注：这个demo 实在qq风格的基础上做了改造</span>
+			<br>
+			<span>113行可以对图标进行添加或删除，比如不需要百度地图删掉　'baidumap',　 即可</span>
+		</div>
+		<form name="post_info" method="post" action="demo_action.php">
+		<div class="title-style"><b>TITLE:</b><br/><input type="text" name="article_title" value=""></div>
+		<div>
+			<b>CONTENT:</b><br />
+			<textarea name="article_content" id= 'content_info' style="width:90%;height:500px;visibility:hidden;">
+			</textarea>
+			</form>
+		</div>
+		<div >
+			
+		</div>
+		
+	</div>
+</div>
+</body>
+</html>
